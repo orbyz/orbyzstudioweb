@@ -4,7 +4,7 @@ import Image from "next/image";
 import logoImg from "../assets/logo.svg";
 import { NAV_LINKS } from "../constants";
 import { clsx } from "clsx";
-import { React, useState } from "react";
+import React, { useState } from "react";
 
 export default function Navigation(): React.FunctionComponent {
   const [open, setOpen] = useState<boolean>(false);
