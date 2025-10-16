@@ -4,9 +4,9 @@ import Image from "next/image";
 import logoImg from "../assets/logo.svg";
 import { NAV_LINKS } from "../constants";
 import { clsx } from "clsx";
-import { useState } from "react";
+import { React, useState } from "react";
 
-export default function Navigation(): JSX.Element {
+export default function Navigation(): React.FunctionComponent {
   const [open, setOpen] = useState<boolean>(false);
   return (
     <header className="relative bg-custom-white dark:bg-custom-black shadow">
