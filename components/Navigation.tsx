@@ -6,8 +6,9 @@ import { NAV_LINKS } from "../constants";
 import { clsx } from "clsx";
 import React, { useState } from "react";
 
-export default function Navigation(): React.FunctionComponent {
+export default function Navigation(): JSX.Element {
   const [open, setOpen] = useState<boolean>(false);
+
   return (
     <header className="relative bg-custom-white dark:bg-custom-black shadow">
       {/* Contenido desktop */}
@@ -18,10 +19,10 @@ export default function Navigation(): React.FunctionComponent {
             ORBYZ Studio
           </span>
         </Link>
+
         <ul className="hidden gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
-              as={""}
               href={link.path}
               key={link.name}
               className="block font-semibold text-custom-black rounded-sm hover:bg-custom-green md:hover:bg-transparent md:hover:text-custom-green md:px-3 dark:text-custom-white md:dark:hover:text-custom-green dark:hover:bg-custom-green dark:hover:text-custom-green md:dark:hover:bg-transparent dark:border-gray-800"
@@ -30,6 +31,7 @@ export default function Navigation(): React.FunctionComponent {
             </Link>
           ))}
         </ul>
+
         {/* Botón hamburguesa (mobile) */}
         <button
           onClick={() => setOpen((o) => !o)}
@@ -61,6 +63,7 @@ export default function Navigation(): React.FunctionComponent {
           </div>
         </button>
       </nav>
+
       {/* Mobile panel */}
       <div
         id="mobile-menu"
@@ -88,7 +91,6 @@ export default function Navigation(): React.FunctionComponent {
           <ul className="mt-6 flex flex-col gap-4 items-center">
             {NAV_LINKS.map((link) => (
               <Link
-                as={""}
                 href={link.path}
                 key={link.name}
                 onClick={() => setOpen(false)}
