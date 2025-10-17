@@ -4,6 +4,7 @@ import "@styles/globals.css";
 import Navigation from "@components/Navigation";
 import Footer from "@components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,22 +15,37 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ORBYZ Studio",
-  description: "Branding | Digital Marketing | Web Develop | Cybersecurity",
-  keywords: ["Branding", "Digital Marketing", "Web Develop", "Cybersecurity"],
-  creator: "Jonathan Olbes",
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+  // Define una URL base para que las rutas relativas funcionen
+  metadataBase: new URL("https://www.orbyzstudio.dev"),
+
+  title: "ORBYZ Studio | Agencia Digital 360°",
+  description:
+    "Ofrecemos servicios integrales de branding, marketing digital, desarrollo web y ciberseguridad para un crecimiento seguro.",
+
+  // Metadatos para Open Graph (Facebook, LinkedIn, etc.)
+  openGraph: {
+    type: "website",
+    url: "https://www.orbyzstudio.dev/",
+    title: "ORBYZ Studio | Agencia Digital 360°",
+    description:
+      "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
+    images: [
+      {
+        url: "/og-image.jpg", // Ruta a tu imagen en la carpeta `public`
+        width: 1200,
+        height: 630,
+        alt: "Imagen de presentación de ORBYZ Studio",
+      },
+    ],
+  },
+
+  // Metadatos para Twitter Cards
+  twitter: {
+    card: "summary_large_image",
+    title: "Crecimiento Digital Seguro | Nombre de tu Startup",
+    description:
+      "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
+    images: ["/og-image.jpg"], // Ruta a tu imagen en la carpeta `public`
   },
 };
 
@@ -43,6 +59,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
