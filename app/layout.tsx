@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   // Metadatos para Twitter Cards
   twitter: {
     card: "summary_large_image",
-    title: "Crecimiento Digital Seguro | Nombre de tu Startup",
+    title: "Crecimiento Digital Seguro | ORBYZ Studio",
     description:
       "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
     images: ["/og-image.jpg"], // Ruta a tu imagen en la carpeta `public`
