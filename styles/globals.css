@@ -30,3 +30,32 @@ body {
     color: var(--foreground);
     font-family: Poppins, Inter, sans-serif;
 }
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+}
+
+/* gradients & motion */
+.border-custom-green {
+    border-color: #00ff88;
+}
+.text-custom-green {
+    color: #00ff88;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .transform {
+        transform: none !important;
+    }
+}
