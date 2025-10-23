@@ -11,7 +11,7 @@ export default function Hero() {
       <div
         className={clsx(
           "pointer-events-none absolute inset-0 -z-10",
-          "bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]",
+          "bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(206,240,9,0.2),rgba(255,255,255,0))]",
           "motion-safe:animate-pulse",
         )}
       />
@@ -21,10 +21,10 @@ export default function Hero() {
           Impulsamos tu marca{" "}
           <span
             className={clsx(
-              "relative after:absolute after:left-0 after:bottom-0 after:h-2 after:w-full",
+              "relative after:absolute after:left-0 after:-bottom-2.5 after:h-2 after:w-full",
               "after:origin-left after:scale-x-0 after:bg-custom-green",
               "after:transition-transform after:duration-500",
-              hover && "after:scale-x-100 mt-2",
+              hover && "after:scale-x-100",
             )}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
@@ -40,7 +40,7 @@ export default function Hero() {
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/contacto"
-            className="inline-flex items-center gap-2 rounded-lg bg-custom-green px-6 py-3 font-semibold text-black shadow-md hover:bg-green-400 hover:shadow-lg transition"
+            className="inline-flex items-center gap-2 rounded-lg bg-custom-green px-6 py-3 font-semibold text-black shadow-md hover:bg-custom-white hover:shadow-lg transition"
           >
             Empezar ahora
             <svg

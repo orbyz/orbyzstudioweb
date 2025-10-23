@@ -45,13 +45,13 @@ body {
     animation: fade-in 0.6s ease-out;
 }
 
-/* gradients & motion */
+/* gradients & motion
 .border-custom-green {
-    border-color: #00ff88;
+    border-color: #cef009;
 }
 .text-custom-green {
-    color: #00ff88;
-}
+    color: #cef009;
+}*/
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {

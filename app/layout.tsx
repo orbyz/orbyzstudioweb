@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Crecimiento Digital Seguro | ORBYZ Studio",
     description:
       "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
-    images: ["/og-image.jpg"], // Ruta a tu imagen en la carpeta `public`
+    images: "/og-image.jpg", // Ruta a tu imagen en la carpeta `public`
   },
 };
 
@@ -53,7 +53,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="es" className={inter.className}>
       <body className={`${inter.className} max-w-[1280px]antialiased`}>
         <Navigation />
         {children}

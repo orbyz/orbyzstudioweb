@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://orbyzstudio.dev/servicios",
+      url: "https://orbyzstudio.dev/services",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,

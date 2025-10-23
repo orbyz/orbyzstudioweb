@@ -1,31 +1,36 @@
 "use client";
 import clsx from "clsx";
 import Link from "next/link";
+import Image from "next/image";
+import imgBrand from "../assets/branding.jpg";
+import imgMarketing from "../assets/marketing.jpg";
+import imgDevelopment from "../assets/development.jpg";
+import imgSecurity from "../assets/security.jpg";
 
 const features = [
   {
     title: "Identidad de marca",
     desc: "Creamos una presencia distintiva que resuena con tu audiencia.",
     href: "/identidad",
-    icon: "🎨",
+    icon: imgBrand,
   },
   {
     title: "Soluciones de marketing",
     desc: "Involucre a su audiencia con campañas precisas y mensurables.",
     href: "/marketing",
-    icon: "📈",
+    icon: imgMarketing,
   },
   {
     title: "Desarrollo web",
     desc: "Sitios web rápidos, atractivos y optimizados en todos los dispositivos.",
     href: "/desarrollo",
-    icon: "💻",
+    icon: imgDevelopment,
   },
   {
     title: "Seguridad web",
     desc: "Protegemos tus activos digitales con conocimientos prácticos.",
     href: "/seguridad",
-    icon: "🔒",
+    icon: imgSecurity,
   },
 ];
 
@@ -33,7 +38,7 @@ export default function FeatureGrid() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
       {/* HEADER */}
-      <div className="text-center">
+      <div className="text-center md:text-start">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
           Eleva tu marca. Asegura su futuro
         </h2>
@@ -51,12 +56,18 @@ export default function FeatureGrid() {
             href={f.href}
             className={clsx(
               "group relative overflow-hidden rounded-2xl border border-gray-200",
-              "bg-white p-6 dark:border-gray-800 dark:bg-gray-900",
+              "bg-white p-6 dark:border-gray-800 dark:bg-custom-black dark:text-custom-white",
               "hover:border-custom-green dark:hover:border-custom-green",
               "transform transition hover:-translate-y-1",
             )}
           >
-            <div className="text-3xl">{f.icon}</div>
+            <Image
+              src={f.icon}
+              alt={f.title}
+              width={350}
+              height={48}
+              className="mx-auto"
+            />
             <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">
               {f.title}
             </h3>
