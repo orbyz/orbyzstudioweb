@@ -2,7 +2,6 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { X, Settings } from "react-feather"; // npm i react-feather
 
 const COOKIE_KEY = "orbyz_cookie_consent";
 
