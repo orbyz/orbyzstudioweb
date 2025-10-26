@@ -3,37 +3,37 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://orbyzstudio.dev",
+      url: "https://www.orbyzstudio.dev",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://orbyzstudio.dev/about",
+      url: "https://www.orbyzstudio.dev/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://orbyzstudio.dev/services",
+      url: "https://www.orbyzstudio.dev/services",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
-      url: "https://orbyzstudio.dev/projects",
+      url: "https://www.orbyzstudio.dev/projects",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
-      url: "https://orbyzstudio.dev/blog",
+      url: "https://www.orbyzstudio.dev/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
     },
     {
-      url: "https://orbyzstudio.dev/contact",
+      url: "https://www.orbyzstudio.dev/contact",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
