@@ -6,6 +6,7 @@
     --color-custom-green: #cef009;
     --color-custom-black: #171717;
     --color-custom-white: #fcfeff;
+    --color-custom-greenhover: #e3ff4f;
 }
 
 @theme inline {
@@ -16,6 +17,7 @@
     --color-custom-green: #cef009;
     --color-custom-black: #171717;
     --color-custom-white: #fcfeff;
+    --color-custom-greenhover: #e3ff4f;
 }
 
 @media (prefers-color-scheme: dark) {

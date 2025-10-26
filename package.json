@@ -27,6 +27,7 @@
     "nodemailer": "^7.0.10",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-feather": "^2.0.10",
     "resend": "^6.2.2",
     "typed.js": "^2.1.0"
   },

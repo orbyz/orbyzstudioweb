@@ -6,6 +6,43 @@ import { X, Settings } from "react-feather"; // npm i react-feather
 
 const COOKIE_KEY = "orbyz_cookie_consent";
 
+const IconX = () => (
+  <svg
+    className="h-5 w-5"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M6 18L18 6M6 6l12 12"
+    />
+  </svg>
+);
+
+const IconSettings = () => (
+  <svg
+    className="h-4 w-4"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+    />
+  </svg>
+);
+
 type Consent = {
   necessary: true;
   analytics: boolean;
@@ -67,7 +104,7 @@ export default function CookieBanner() {
             </p>
           </div>
           <button onClick={() => setShow(false)} aria-label="Cerrar">
-            <X className="h-5 w-5 text-custom-green hover:text-custom-white" />
+            <IconX />
           </button>
         </div>
 
@@ -130,7 +167,7 @@ export default function CookieBanner() {
             onClick={() => setDetails((d) => !d)}
             className="inline-flex items-center gap-2 text-sm font-medium dark:text-custom-green hover:border-custom-greenhover"
           >
-            <Settings className="h-4 w-4" />
+            <IconSettings />
             Configurar cookies
           </button>
           {details && (

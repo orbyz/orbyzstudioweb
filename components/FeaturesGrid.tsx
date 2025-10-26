@@ -2,10 +2,10 @@
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import imgBrand from "../assets/branding.jpg";
-import imgMarketing from "../assets/marketing.jpg";
-import imgDevelopment from "../assets/development.jpg";
-import imgSecurity from "../assets/security.jpg";
+import imgBrand from "../assets/branding.png";
+import imgMarketing from "../assets/marketing.png";
+import imgDevelopment from "../assets/development.png";
+import imgSecurity from "../assets/security.png";
 
 const features = [
   {

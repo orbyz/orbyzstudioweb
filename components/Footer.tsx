@@ -94,7 +94,7 @@ export default function Footer() {
           <h3 className="mb-2 font-semibold text-lg">Derechos legales</h3>
           <h4 className="mb-2 font-semibold">
             <Link
-              href="/politica-de-privacidad"
+              href="/legal/privacy-policy"
               className=" transition hover:text-custom-green"
             >
               Política de privacidad
@@ -102,7 +102,7 @@ export default function Footer() {
           </h4>
           <h4 className="mb-2 font-semibold hover:text-custom-green">
             <Link
-              href="/terminos-y-condiciones"
+              href="/legal/terms-conditions"
               className=" transition hover:text-custom-green"
             >
               Términos y condiciones
@@ -110,7 +110,7 @@ export default function Footer() {
           </h4>
           <h4 className="mb-2 font-semibold hover:text-custom-green">
             <Link
-              href="/politica-de-cookies"
+              href="/legal/cookies-policy"
               className=" transition hover:text-custom-green"
             >
               Política de cookies
