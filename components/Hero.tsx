@@ -16,7 +16,7 @@ export default function Hero() {
         )}
       />
 
-      <div className="mx-auto max-w-3xl px-6 text-center">
+      <div className="mx-auto max-w-[1280px] px-7 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-7xl">
           Impulsamos tu marca{" "}
           <span

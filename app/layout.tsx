@@ -54,7 +54,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={inter.className}>
-      <body className={`${inter.className} max-w-[1280px]antialiased`}>
+      <body className={`${inter.className} max-h-screen antialiased`}>
         <Navigation />
         {children}
         <Footer />
