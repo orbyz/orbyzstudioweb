@@ -47,7 +47,7 @@ export default function NotFound(): JSX.Element {
   }, []);
 
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+    <main className="min-h-screen bg-custom-black text-white flex items-center justify-center px-6">
       <div className="max-w-2xl text-center">
         <h1
           id="glitch"
