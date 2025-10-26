@@ -39,7 +39,7 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/contacto"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-lg bg-custom-green px-6 py-3 font-semibold text-black shadow-md hover:bg-custom-white hover:shadow-lg transition"
           >
             Empezar ahora

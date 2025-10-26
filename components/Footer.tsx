@@ -118,7 +118,7 @@ export default function Footer() {
           </h4>
         </section>
       </div>
-      <div className="flex md:max-w-[1280px] mx-auto items-center md:justify-center">
+      <div className="flexflex-row md:max-w-[1280px] mx-auto items-center md:justify-center">
         <p className="m-2 text-center">
           © 2025 Orbyz Studio. Todos los derechos reservados.
         </p>
