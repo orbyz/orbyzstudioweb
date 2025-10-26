@@ -20,20 +20,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    {
+      url: "https://orbyzstudio.dev/projects",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: "https://orbyzstudio.dev/blog",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.5,
+    },
+    {
+      url: "https://orbyzstudio.dev/contact",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
   ];
 }
-
-/* Add a new route for the blog section
-{
-  url: "https://orbyzstudio.dev/blog",
-  lastModified: new Date(),
-  changeFrequency: "weekly",
-  priority: 0.5,
-},
-{
-  url: "https://orbyzstudio.dev/contacto",
-  lastModified: new Date(),
-  changeFrequency: "monthly",
-  priority: 0.6,
-},
-*/
