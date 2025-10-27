@@ -23,7 +23,7 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section className="py-24 bg-white dark:bg-neutral-950 text-neutral-800 dark:text-neutral-100">
+    <section className="py-24 bg-white text-custom-black">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16">
           Cómo lo hacemos
@@ -33,7 +33,7 @@ export default function ProcessSection() {
           {steps.map((step) => (
             <div
               key={step.step}
-              className="relative p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 hover:shadow-lg transition"
+              className="relative p-8 rounded-2xl border border-neutral-200 bg-neutral-50  hover:shadow-lg transition"
             >
               <span className="absolute text-custom-black top-6 left-6 text-sm font-semibold">
                 {step.step}

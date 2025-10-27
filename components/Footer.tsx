@@ -27,7 +27,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="hover:text-pink-400 transition"
+              className="text-custom-white hover:text-pink-400 transition"
             >
               <Icon icon="mdi:instagram" ssr={true} />
             </a>
@@ -37,7 +37,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="hover:text-sky-400 transition"
+              className="text-custom-white hover:text-sky-400 transition"
             >
               <Icon icon="mdi:linkedin" width="24" height="24" />
             </a>
@@ -47,7 +47,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="hover:text-green-400 transition"
+              className="text-custom-white hover:text-green-400 transition"
             >
               <Icon icon="ic:baseline-whatsapp" width="24" height="24" />
             </a>
@@ -55,7 +55,7 @@ export default function Footer() {
             <a
               href="mailto:contact@orbyzstudio.dev"
               aria-label="Email"
-              className="hover:text-custom-green transition"
+              className="text-custom-white hover:text-custom-green transition"
             >
               <Icon icon="material-symbols:mail" width="24" height="24" />
             </a>
@@ -64,7 +64,7 @@ export default function Footer() {
 
         {/* Center: Newsletter */}
         <section className="md:col-start-2">
-          <h3 className="mb-2">
+          <h3 className="mb-2 text-custom-white">
             Obtenga actualizaciones sobre marca, marketing, web y seguridad.
           </h3>
 
@@ -119,10 +119,12 @@ export default function Footer() {
         </section>
       </div>
       <div className="flexflex-row md:max-w-[1280px] mx-auto items-center md:justify-center">
-        <p className="m-2 text-center">
+        <p className="m-2 text-center text-custom-white">
           © 2025 Orbyz Studio. Todos los derechos reservados.
         </p>
-        <p className="m-2 text-center">Hecho con ❤️ en España</p>
+        <p className="m-2 text-center text-custom-white">
+          Hecho con ❤️ en España
+        </p>
       </div>
     </footer>
   );

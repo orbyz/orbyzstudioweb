@@ -26,7 +26,7 @@ export default function MarketingPage() {
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
             Atrae, convierte y&nbsp;
-            <span className="text-[#cef009]">fideliza</span>
+            <span className="text-custom-green">fideliza</span>
           </h1>
           <p className="mt-6 text-lg text-custom-white">
             SEO técnico, campañas de pago, redes sociales y automatizaciones.
@@ -34,7 +34,7 @@ export default function MarketingPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-10 inline-flex items-center gap-2 rounded bg-[#cef009] px-5 py-3 font-semibold text-black hover:bg-[#e3ff4f]"
+            className="mt-10 inline-flex items-center gap-2 rounded bg-custom-green px-5 py-3 font-semibold text-black hover:bg-custom-greenhover"
           >
             Solicitar auditoría gratis
           </Link>
@@ -79,7 +79,7 @@ export default function MarketingPage() {
       </section>
 
       {/* Resultados */}
-      <section className="px-6 py-20 bg-neutral-50">
+      <section className="px-6 py-20 bg-custom-white">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold text-custom-black">
             Resultados recientes

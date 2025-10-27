@@ -4,18 +4,8 @@ import clsx from "clsx";
 import { useState } from "react";
 
 export default function Hero() {
-  const [hover, setHover] = useState(false);
   return (
-    <section className="relative isolate flex min-h-[70vh] items-center justify-center bg-custom-black py-40">
-      {/* Fondo animado (solo si el usuario NO prefiere reducir movimiento) */}
-      <div
-        className={clsx(
-          "pointer-events-none absolute inset-0 -z-10",
-          "bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(206,240,9,0.2),rgba(255,255,255,0))]",
-          "motion-safe:animate-pulse",
-        )}
-      />
-
+    <section className="relative isolate flex items-center justify-center bg-custom-black py-40">
       <div className="mx-auto max-w-[1280px] px-7 py-16 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight text-custom-white md:text-7xl">
           Impulsamos tu marca hacia{" "}
@@ -29,7 +19,7 @@ export default function Hero() {
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-custom-green px-6 py-3 font-semibold text-black shadow-md hover:bg-custom-greenhover hover:shadow-lg transition"
+            className="inline-flex items-center gap-2 rounded-lg bg-custom-green px-6 py-3 font-semibold text-custom-black  hover:bg-custom-greenhover transition"
           >
             Empezar ahora
             <svg
