@@ -12,7 +12,7 @@ export default function ServicesPage() {
   return (
     <main className="bg-custom-black text-custom-white my-20">
       {/* 1. Hero */}
-      <section className="px-6 sm:py-32">
+      <section className="px-6 py-20 sm:py-32">
         <nav className="text-sm text-custom-white">
           <Link href="/" className="hover:underline">
             Home
