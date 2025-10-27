@@ -35,13 +35,11 @@ export default function ProcessSection() {
               key={step.step}
               className="relative p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 hover:shadow-lg transition"
             >
-              <span className="absolute text-custom-green top-6 left-6 text-sm font-semibold">
+              <span className="absolute text-custom-black top-6 left-6 text-sm font-semibold">
                 {step.step}
               </span>
               <h3 className="text-xl font-semibold mb-3 mt-8">{step.title}</h3>
-              <p className="text-neutral-600 dark:text-neutral-300">
-                {step.desc}
-              </p>
+              <p className="text-custom-black">{step.desc}</p>
             </div>
           ))}
         </div>

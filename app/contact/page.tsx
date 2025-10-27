@@ -43,17 +43,17 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-b from-neutral-950 to-neutral-900 text-white">
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-40 bg-gradient-to-b from-neutral-950 to-neutral-900 text-white">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="max-w-3xl text-center mb-12"
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <h1 className="text-4xl text-custom-green md:text-5xl font-bold mb-4">
           Conversemos sobre tu próximo proyecto 🚀
         </h1>
-        <p className="text-neutral-400">
+        <p className="text-custom-white ">
           Ya sea que necesites una identidad visual, una web profesional o una
           estrategia digital integral, estamos listos para escucharte y llevar
           tu marca al siguiente nivel.
@@ -111,7 +111,7 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 transition rounded-lg p-3 font-semibold"
+            className="flex items-center justify-center gap-2 bg-custom-green hover:bg-custom-greenhover transition rounded-lg p-3 text-custom-black font-semibold"
           >
             {status === "loading" ? (
               "Enviando..."

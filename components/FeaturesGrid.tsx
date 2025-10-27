@@ -39,10 +39,10 @@ export default function FeatureGrid() {
     <section className="mx-auto max-w-7xl px-6 py-20">
       {/* HEADER */}
       <div className="text-center md:text-start">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-custom-white">
           Eleva tu marca. Asegura su futuro
         </h2>
-        <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+        <p className="mt-4 text-lg text-custom-white">
           Potenciamos cada área de tu negocio digital para que crezcas sin
           fricciones.
         </p>
@@ -55,8 +55,8 @@ export default function FeatureGrid() {
             key={f.title}
             href={f.href}
             className={clsx(
-              "group relative overflow-hidden rounded-2xl border border-gray-200",
-              "bg-white p-6 dark:border-gray-800 dark:bg-custom-black dark:text-custom-white",
+              "group relative overflow-hidden rounded-2xl border border-custom-green",
+              "bg-custom-black p-6  text-custom-white",
               "hover:border-custom-green dark:hover:border-custom-green",
               "transform transition hover:-translate-y-1",
             )}
@@ -68,12 +68,10 @@ export default function FeatureGrid() {
               height={48}
               className="mx-auto"
             />
-            <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">
+            <h3 className="mt-4 text-xl font-semibold text-custom-white">
               {f.title}
             </h3>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-              {f.desc}
-            </p>
+            <p className="mt-2 text-sm text-custom-white">{f.desc}</p>
             <span
               className={clsx(
                 "mt-4 inline-flex items-center gap-1 text-sm font-medium",

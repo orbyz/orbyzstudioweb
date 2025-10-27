@@ -7,17 +7,17 @@ import logoImg from "../assets/logo.svg";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-custom-white dark:bg-custom-black">
+    <footer className="relative bg-custom-black">
       <div className="mx-auto min-h-[300px] max-w-6xl px-6 py-12 grid gap-10 md:grid-cols-3 items-center">
         {/* Left: Brand & Social */}
         <section className="flex flex-col gap-4">
           <Link href="/" className="flex font-bold">
             <Image src={logoImg} alt="logo" width={48} height={48} />
-            <span className="md:w-auto self-center text-lg font-semibold whitespace-nowrap dark:text-custom-white">
+            <span className="md:w-auto self-center text-lg font-semibold whitespace-nowrap text-custom-white">
               ORBYZ Studio
             </span>
           </Link>
-          <p className="text-sm text-custom-black dark:text-custom-white">
+          <p className="text-sm text-custom-white">
             Branding, Marketing Digital y Desarrollo Web
           </p>
 
@@ -43,7 +43,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://wa.me/34600000000"
+              href="https://wa.me/message/DN2V2QSDWSRJA1"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -64,7 +64,7 @@ export default function Footer() {
 
         {/* Center: Newsletter */}
         <section className="md:col-start-2">
-          <h3 className="mb-2 font-semibold">
+          <h3 className="mb-2">
             Obtenga actualizaciones sobre marca, marketing, web y seguridad.
           </h3>
 
@@ -78,11 +78,11 @@ export default function Footer() {
               type="email"
               placeholder="tu@email.com"
               required
-              className="w-full rounded-md px-3 py-2 text-custom-black dark:text-custom-white border border-custom-green"
+              className="w-full rounded-md px-3 py-2 text-custom-white border border-custom-green"
             />
             <button
               type="submit"
-              className="rounded-md bg-white px-4 py-2 text-sm font-medium text-black hover:bg-custom-green hover:text-custom-black transition"
+              className="rounded-md bg-custom-green px-4 py-2 text-sm font-medium text-custom-black hover:bg-custom-greenhover hover:text-custom-black transition"
             >
               Suscribir
             </button>
@@ -90,7 +90,7 @@ export default function Footer() {
         </section>
 
         {/* Right: Legal */}
-        <section className="md:text-right text-sm text-custom-black dark:text-custom-white">
+        <section className="md:text-right text-sm text-custom-white">
           <h3 className="mb-2 font-semibold text-lg">Derechos legales</h3>
           <h4 className="mb-2 font-semibold">
             <Link

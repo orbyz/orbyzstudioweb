@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function CallToActionSection() {
   return (
-    <section className="py-28 bg-gradient-to-br from-black via-neutral-900 to-neutral-800 text-white text-center">
+    <section className="py-28 bg-gradient-to-br from-custom-black via-neutral-900 to-custom-black text-custom-green text-center">
       <div className="max-w-4xl mx-auto px-6">
         <motion.h2
           className="text-4xl font-bold mb-6"
@@ -15,14 +15,14 @@ export default function CallToActionSection() {
           ¿Listo para marcar la diferencia?
         </motion.h2>
         <motion.p
-          className="max-w-3xl mx-auto text-lg mb-12 text-custom-white dark:text-neutral-300"
+          className="max-w-3xl mx-auto text-xl mb-12 text-custom-white"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          En ORBYZ Studio te acompañamos desde la idea hasta la ejecución.
-          Agenda una consultoría sin compromiso y descubre lo que tu marca puede
-          alcanzar.
+          En <strong className="text-custom-green">ORBYZ Studio</strong> te
+          acompañamos desde la idea hasta la ejecución. Agenda una consultoría
+          sin compromiso y descubre lo que tu marca puede alcanzar.
         </motion.p>
         <motion.div
           className="mt-12"
@@ -32,7 +32,7 @@ export default function CallToActionSection() {
         >
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 text-lg font-semibold bg-white text-black rounded-full hover:bg-custom-green transition"
+            className="inline-flex items-center gap-2 rounded-lg bg-custom-green px-6 py-3 font-semibold text-custom-black shadow-md hover:bg-custom-greenhover hover:shadow-lg transition"
           >
             Comenzar ahora
           </Link>

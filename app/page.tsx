@@ -9,8 +9,8 @@ export default function Home() {
     <>
       <Hero />
       <FeatureGrid />
-      <WhyChooseUsSection />
       <ProcessSection />
+      <WhyChooseUsSection />
       <CallToActionSection />
     </>
   );

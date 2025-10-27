@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
   title: "ORBYZ Studio | Agencia Digital 360°",
   description:
-    "Ofrecemos servicios integrales de branding, marketing digital, desarrollo web y ciberseguridad para un crecimiento seguro.",
+    "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
 
   // Metadatos para Open Graph (Facebook, LinkedIn, etc.)
   openGraph: {

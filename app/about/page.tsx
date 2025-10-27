@@ -6,13 +6,13 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white px-6 py-20">
+    <main className="min-h-screen bg-custom-black text-custom-white px-6 py-40">
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto text-center mb-20">
-        <h1 className="text-5xl font-bold mb-6">
+        <h1 className="text-5xl font-bold mb-6 text-custom-green">
           El poder detrás de las marcas que inspiran
         </h1>
-        <p className="text-gray-400 text-lg">
+        <p className="text-custom-white text-lg">
           En ORBYZ Studio creemos en la fusión entre la creatividad, la
           tecnología y la estrategia. Transformamos ideas en experiencias
           digitales que impulsan marcas hacia el futuro.
@@ -25,13 +25,13 @@ export default function AboutPage() {
           <h2 className="text-3xl font-semibold mb-4 text-custom-green">
             Nuestra Esencia
           </h2>
-          <p className="text-gray-400 leading-relaxed">
+          <p className="text-custom-white leading-relaxed">
             Somos una agencia digital dedicada a crear identidades de marca
             sólidas, estrategias de marketing efectivas y experiencias web que
             cautivan. Nuestra misión es ayudar a las marcas a destacar con
             autenticidad y propósito.
           </p>
-          <p className="text-gray-400 mt-4">
+          <p className="text-custom-white mt-4">
             Basamos nuestro trabajo en tres pilares: innovación, diseño
             inteligente y resultados medibles.
           </p>
@@ -47,7 +47,7 @@ export default function AboutPage() {
       </section>
 
       {/* El Equipo */}
-      <section className="max-w-6xl mx-auto mb-24">
+      <section className="max-w-6xl mx-auto m-36">
         <h2 className="text-3xl font-semibold text-center mb-12 text-custom-green">
           El Equipo Directivo
         </h2>
@@ -64,7 +64,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-2xl font-bold">Jonathan Olbes.</h3>
             <p className="text-custom-green mb-3">CEO & Founder</p>
-            <p className="text-gray-400">
+            <p className="text-custom-white">
               Visionario digital apasionado por la innovación, el desarrollo web
               y la ciberseguridad, liderando proyectos que fusionan diseño,
               estrategia y tecnología.
@@ -83,7 +83,7 @@ export default function AboutPage() {
             </div>
             <h3 className="text-2xl font-bold">Andreina Aguirre.</h3>
             <p className="text-custom-green mb-3">Chief Marketing Officer</p>
-            <p className="text-gray-400">
+            <p className="text-custom-white">
               Estratega creativo con una visión clara del posicionamiento
               digital, guiando las marcas hacia el reconocimiento y la conexión
               con su audiencia.
@@ -93,11 +93,11 @@ export default function AboutPage() {
       </section>
 
       {/* Nuestra Cultura */}
-      <section className="max-w-4xl mx-auto text-center mb-20">
+      <section className="max-w-4xl min-h-[300px] mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-6 text-custom-green">
           Nuestra Cultura
         </h2>
-        <p className="text-gray-400 leading-relaxed">
+        <p className="text-custext-custom-white leading-relaxed">
           Creemos que la excelencia surge cuando la pasión y la creatividad
           trabajan de la mano. En ORBYZ Studio, cultivamos una cultura de
           aprendizaje constante, colaboración y evolución.
@@ -106,12 +106,12 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="text-center">
-        <h3 className="text-2xl font-bold mb-4">
+        <h3 className="text-2xl font-bold m-10">
           ¿Listo para crear algo extraordinario?
         </h3>
         <Link
           href="/contact"
-          className="inline-block bg-custom-green text-black px-8 py-3 rounded-full font-semibold hover:bg-custom-greenhover transition"
+          className="inline-flex items-center gap-2 rounded-lg bg-custom-green px-6 py-3 font-semibold text-black shadow-md hover:bg-custom-greenhover hover:shadow-lg transition"
         >
           Contáctanos
         </Link>
