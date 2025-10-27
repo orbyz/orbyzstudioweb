@@ -11,25 +11,25 @@ const features = [
   {
     title: "Identidad de marca",
     desc: "Creamos una presencia distintiva que resuena con tu audiencia.",
-    href: "/identidad",
+    href: "/services/branding",
     icon: imgBrand,
   },
   {
     title: "Soluciones de marketing",
     desc: "Involucre a su audiencia con campañas precisas y mensurables.",
-    href: "/marketing",
+    href: "/services/digital-marketing",
     icon: imgMarketing,
   },
   {
     title: "Desarrollo web",
     desc: "Sitios web rápidos, atractivos y optimizados en todos los dispositivos.",
-    href: "/desarrollo",
+    href: "/services/web-development",
     icon: imgDevelopment,
   },
   {
     title: "Seguridad web",
     desc: "Protegemos tus activos digitales con conocimientos prácticos.",
-    href: "/seguridad",
+    href: "/contact",
     icon: imgSecurity,
   },
 ];

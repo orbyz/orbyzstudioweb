@@ -108,7 +108,7 @@ export default function Navigation(): JSX.Element {
         />
         <aside
           className={clsx(
-            "relative w-4/5 max-w-sm -translate-x-full bg-custom-white dark:bg-custom-black p-6 shadow-xl transition-transform duration-300",
+            "relative w-4/5 max-w-sm -translate-x-full bg-custom-black p-6 shadow-xl transition-transform duration-300",
             open && "translate-x-0",
           )}
         >
@@ -118,7 +118,7 @@ export default function Navigation(): JSX.Element {
                 href={link.path}
                 key={link.name}
                 onClick={() => setOpen(false)}
-                className="block text-center text-xl font-semibold text-custom-black rounded-sm hover:bg-custom-green md:hover:bg-transparent md:hover:text-custom-green md:px-3 dark:text-custom-white md:dark:hover:text-custom-green dark:hover:bg-custom-green dark:hover:text-custom-green md:dark:hover:bg-transparent dark:border-gray-800"
+                className="block text-center text-xl font-semibold text-custom-white rounded-sm hover:bg-custom-green md:hover:bg-transparent md:hover:text-custom-greenhover md:px-3  md:dark:hover:text-custom-green dark:hover:bg-custom-green dark:hover:text-custom-green md:dark:hover:bg-transparent dark:border-gray-800"
               >
                 {link.name}
               </Link>

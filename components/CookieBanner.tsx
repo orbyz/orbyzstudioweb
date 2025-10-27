@@ -90,14 +90,14 @@ export default function CookieBanner() {
   if (!show) return null;
 
   return (
-    <aside className="fixed inset-x-0 bottom-0 z-50 bg-white dark:bg-custom-black shadow-2xl ring-1 ring-custom-green">
+    <aside className="fixed inset-x-0 bottom-0 z-50 bg-custom-black shadow-2xl ring-1 ring-custom-green">
       <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6">
         <div className="flex items-start justify-between">
           <div className="text-sm text-custom-white">
-            <p className="font-semibold text-custom-black dark:text-custom-green">
+            <p className="font-semibold text-custom-green">
               Este sitio usa cookies
             </p>
-            <p className="mt-1 text-custom-black dark:text-custom-white">
+            <p className="mt-1 text-custom-white">
               Utilizamos cookies técnicas, analíticas y de marketing. Puedes
               gestionar tus preferencias en cualquier momento.
             </p>
@@ -129,7 +129,7 @@ export default function CookieBanner() {
                   setConsent({ ...consent, analytics: e.target.checked })
                 }
               />
-              <span className="text-sm text-custom-black dark:text-custom-white">
+              <span className="text-sm text-custom-black">
                 Análisis (Google Analytics, etc.)
               </span>
             </label>
@@ -158,7 +158,7 @@ export default function CookieBanner() {
           </button>
           <button
             onClick={rejectAll}
-            className="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-red-200"
+            className="rounded border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-custom-black hover:bg-red-200"
           >
             Rechazar todo
           </button>

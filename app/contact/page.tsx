@@ -50,8 +50,9 @@ export default function ContactPage() {
         transition={{ duration: 0.8 }}
         className="max-w-3xl text-center mb-12"
       >
-        <h1 className="text-4xl text-custom-green md:text-5xl font-bold mb-4">
-          Conversemos sobre tu próximo proyecto 🚀
+        <h1 className="text-4xl text-shadow-custom-white md:text-5xl font-bold mb-4">
+          Conversemos sobre{" "}
+          <span className="text-custom-green">tu próximo proyecto 🚀</span>
         </h1>
         <p className="text-custom-white ">
           Ya sea que necesites una identidad visual, una web profesional o una

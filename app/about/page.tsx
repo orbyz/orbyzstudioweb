@@ -9,8 +9,9 @@ export default function AboutPage() {
     <main className="min-h-screen bg-custom-black text-custom-white px-6 py-40">
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto text-center mb-20">
-        <h1 className="text-5xl font-bold mb-6 text-custom-green">
-          El poder detrás de las marcas que inspiran
+        <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
+          El poder detrás de las&nbsp;
+          <span className="text-custom-green">marcas que inspiran</span>
         </h1>
         <p className="text-custom-white text-lg">
           En ORBYZ Studio creemos en la fusión entre la creatividad, la

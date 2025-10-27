@@ -18,19 +18,8 @@ export default function Hero() {
 
       <div className="mx-auto max-w-[1280px] px-7 py-16 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight text-custom-white md:text-7xl">
-          Impulsamos tu marca{" "}
-          <span
-            className={clsx(
-              "relative after:absolute after:left-0 after:-bottom-2.5 after:h-2 after:w-full",
-              "after:origin-left after:scale-x-0 after:bg-custom-green",
-              "after:transition-transform after:duration-500",
-              hover && "after:scale-x-100",
-            )}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            hacia el futuro digital
-          </span>
+          Impulsamos tu marca hacia{" "}
+          <span className="text-custom-green">el futuro digital</span>
         </h1>
 
         <p className="mt-6 text-lg text-custom-white">
