@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Check } from "@components/Icons";
 
 export const metadata: Metadata = {
-  title: "Marketing Digital – Orbyz Studio",
+  title: "Marketing Digital – ORBYZ Studio",
   description:
     "SEO técnico, campañas SEM, redes sociales y funnels que convierten.",
 };

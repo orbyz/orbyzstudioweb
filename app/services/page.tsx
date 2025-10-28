@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ChevronRight } from "@components/Icons";
 
 export const metadata: Metadata = {
-  title: "Servicios – Orbyz Studio",
+  title: "Servicios",
   description:
-    "Especialistas en desarrollo web, identidad de marca y marketing digital.",
+    "Desarrollo web, identidad de marca y marketing digital bajo el mismo techo.",
 };
 
 const services = [

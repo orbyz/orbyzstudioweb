@@ -3,6 +3,13 @@ import imgEquipo from "@assets/equipo.jpg";
 import imgCEO from "@assets/ceo.jpg";
 import imgCMO from "@assets/cmo.jpg";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Nosotros – Orbyz Studio",
+  description:
+    "Especialistas en desarrollo web, identidad de marca y marketing digital.",
+};
 
 export default function AboutPage() {
   return (

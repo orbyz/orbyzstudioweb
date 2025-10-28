@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Check } from "@components/Icons";
 
 export const metadata: Metadata = {
-  title: "Identidad de Marca – Orbyz Studio",
+  title: "Identidad de Marca – ORBYZ Studio",
   description:
     "Creamos tu marca desde cero: naming, logo, paleta, tipografía y manual de marca.",
 };

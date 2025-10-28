@@ -16,30 +16,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  // Define una URL base para que las rutas relativas funcionen
   metadataBase: new URL("https://www.orbyzstudio.dev"),
-
-  title: "ORBYZ Studio | Agencia Digital 360°",
+  title: {
+    default: "ORBYZ Studio | Agencia Digital 360°",
+    template: "%s – ORBYZ Studio", // <- clave: %s se reemplaza con el título de cada página
+  },
   description:
     "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
-
-  // Metadatos para Open Graph (Facebook, LinkedIn, etc.)
   openGraph: {
     type: "website",
-    url: "https://www.orbyzstudio.dev/",
-    title: "ORBYZ Studio | Agencia Digital 360°",
-    description:
-      "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
+    url: "https://www.orbyzstudio.dev",
+    siteName: "ORBYZ Studio",
     images: [
-      {
-        url: "/og-image.jpg", // Ruta a tu imagen en la carpeta `public`
-        width: 1200,
-        height: 630,
-        alt: "Imagen de presentación de ORBYZ Studio",
-      },
+      { url: "/og-image.jpg", width: 1200, height: 630, alt: "ORBYZ Studio" },
     ],
   },
-
   // Metadatos para Twitter Cards
   twitter: {
     card: "summary_large_image",

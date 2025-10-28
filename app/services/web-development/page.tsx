@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ChevronRight, Check } from "@components/Icons";
 
 export const metadata: Metadata = {
-  title: "Servicios – Orbyz Studio",
+  title: "Servicios – ORBYZ Studio",
   description:
     "Desarrollo web a medida, diseño UI/UX y aplicaciones escalables.",
 };
