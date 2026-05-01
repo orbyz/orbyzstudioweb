@@ -1,63 +1,142 @@
 @import "tailwindcss";
 
+/* =========================
+   🎨 DESIGN TOKENS
+========================= */
+
 :root {
-    /* --background: #171717;
-    --foreground: #171717; */
-    --color-custom-green: #cef009;
-    --color-custom-black: #171717;
-    --color-custom-white: #fcfeff;
-    --color-custom-greenhover: #e3ff4f;
+    /* COLORS */
+    --color-primary: #cef009;
+    --color-primary-hover: #e3ff4f;
+
+    --color-bg: #0d1117;
+    --color-surface: #111827;
+
+    --color-text: #ffffff;
+    --color-text-muted: #a1a1aa;
+
+    --color-border: #27272a;
+
+    /* TYPOGRAPHY */
+    --font-sans: var(--font-inter-sans), system-ui, sans-serif;
+
+    /* SPACING & RADIUS */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    /* TRANSITIONS */
+    --transition: all 0.2s ease-in-out;
 }
 
-@theme inline {
-    /*--color-background: var(--background);
-    --color-foreground: var(--foreground); */
-    --font-sans: var(--font-inter-sans);
-    --font-mono: var(--font-inter-mono);
-    --color-custom-green: #cef009;
-    --color-custom-black: #171717;
-    --color-custom-white: #fcfeff;
-    --color-custom-greenhover: #e3ff4f;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #171717;
-        --foreground: #171717;
-    }
-}
+/* =========================
+   🌍 BASE
+========================= */
 
 body {
-    background: #171717;
-    color: #171717;
-    font-family: Poppins, Inter, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
 }
+
+/* Links */
+a {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+/* =========================
+   🔘 BUTTON SYSTEM
+========================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+/* PRIMARY */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* SECONDARY */
+.btn-secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* GHOST */
+.btn-ghost {
+    color: var(--color-text-muted);
+}
+
+.btn-ghost:hover {
+    color: var(--color-primary);
+}
+
+/* =========================
+   🧩 UTILITIES
+========================= */
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.border-default {
+    border-color: var(--color-border);
+}
+
+.bg-surface {
+    background-color: var(--color-surface);
+}
+
+/* =========================
+   ✨ ANIMATIONS
+========================= */
 
 @keyframes fade-in {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(8px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 .animate-fade-in {
     animation: fade-in 0.6s ease-out;
 }
 
-/* gradients & motion
-.border-custom-green {
-    border-color: #cef009;
-}
-.text-custom-green {
-    color: #cef009;
-}*/
+/* =========================
+   ♿ ACCESSIBILITY
+========================= */
 
-/* reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .transform {
-        transform: none !important;
+    * {
+        animation: none !important;
+        transition: none !important;
     }
 }
