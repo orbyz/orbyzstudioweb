@@ -5,6 +5,7 @@ import logoImg from "../assets/logo.svg";
 import { NAV_LINKS } from "../constants";
 import { clsx } from "clsx";
 import React, { useState, useEffect } from "react";
+import Logo from "./ui/Logo";
 
 export default function Navigation(): JSX.Element {
   const [open, setOpen] = useState(false);
@@ -27,23 +28,12 @@ export default function Navigation(): JSX.Element {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src={logoImg}
-            alt="logo"
-            className={clsx("transition-all duration-300", {
-              "w-12 h-12": scrolled,
-              "w-16 h-16": !scrolled,
-            })}
-            width={scrolled ? 48 : 64}
-            height={scrolled ? 48 : 64}
+            src="/logo.png"
+            alt="OrByZ Studio"
+            width={70}
+            height={70}
+            priority
           />
-          <span
-            className={clsx(
-              "self-center font-semibold whitespace-nowrap text-custom-white transition-all duration-300",
-              scrolled ? "text-lg" : "text-xl",
-            )}
-          >
-            ORBYZ Studio
-          </span>
         </Link>
 
         {/* Desktop links */}

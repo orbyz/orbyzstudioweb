@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@styles/globals.css";
-import Navigation from "@components/Navigation";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.className}>
       <body className={`${inter.className} max-h-screen antialiased`}>
-        <Navigation />
+        <Navbar />
         {children}
         <Footer />
         <CookieBannerClient />

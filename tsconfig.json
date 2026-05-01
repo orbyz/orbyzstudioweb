@@ -16,19 +16,19 @@
     "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
-        "name": "next"
-      }
+        "name": "next",
+      },
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./"],
+      "@/*": ["*"],
       "@app/*": ["app/*"],
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
       "@assets/*": ["assets/*"],
-      "@hooks/*": ["hooks/*"]
-    }
+      "@hooks/*": ["hooks/*"],
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }

@@ -1,56 +1,65 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#0D1117] text-white">
-      {/* BACKGROUND GLOW */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(206,240,9,0.15),transparent_40%)] pointer-events-none" />
+    <section className="relative overflow-hidden text-white">
+      {/* BACKGROUND GLOW (más controlado) */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-0 right-0 w-[500px] h-[500px] blur-3xl opacity-20"
+          style={{
+            background:
+              "radial-gradient(circle, var(--color-primary), transparent 60%)",
+          }}
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
-        {/* LEFT CONTENT */}
-        <div>
+      <div className="max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-16 items-center">
+        {/* LEFT */}
+        <div className="animate-fade-in">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
             Construimos experiencias digitales{" "}
-            <span className="text-[#CEF009]">que generan resultados</span>
+            <span className="text-primary">que generan resultados</span>
           </h1>
 
-          <p className="mt-6 text-lg text-zinc-400 max-w-xl">
+          <p className="mt-6 text-lg text-muted max-w-xl">
             Diseño, desarrollo y marketing enfocados en crear productos
-            digitales que escalan y convierten.
+            digitales que escalan, convierten y generan impacto real.
           </p>
 
           {/* CTA */}
-          <div className="mt-8 flex gap-4">
-            <Link
-              href="/contact"
-              className="bg-[#CEF009] text-black px-6 py-3 rounded-xl font-medium hover:opacity-90 transition"
-            >
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/contact" className="btn btn-primary">
               Empecemos
             </Link>
 
-            <Link
-              href="/projects"
-              className="border border-zinc-700 px-6 py-3 rounded-xl hover:border-[#CEF009] transition"
-            >
+            <Link href="/projects" className="btn btn-secondary">
               Ver proyectos
             </Link>
           </div>
         </div>
 
-        {/* RIGHT VISUAL */}
+        {/* RIGHT */}
         <div className="relative flex justify-center items-center">
-          {/* Glow */}
-          <div className="absolute w-[300px] h-[300px] bg-[#CEF009] opacity-20 blur-3xl rounded-full" />
+          {/* GLOW BASE */}
+          <div
+            className="absolute w-[320px] h-[320px] blur-3xl rounded-full opacity-20"
+            style={{ backgroundColor: "var(--color-primary)" }}
+          />
 
-          {/* LOGO CZ */}
-          <div className="text-[120px] md:text-[160px] font-bold text-[#CEF009] tracking-tight">
-            CZ
+          {/* LOGO */}
+          <div className="relative transition-transform duration-500 hover:scale-105">
+            <Image
+              src="/logo.png"
+              alt="OrByZ Studio"
+              width={320}
+              height={320}
+              priority
+            />
           </div>
-
-          {/* DECOR ELEMENT */}
-          <div className="absolute top-10 right-10 w-4 h-4 bg-[#CEF009]" />
         </div>
       </div>
     </section>
