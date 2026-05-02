@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/footer/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import CookieBannerClient from "@components/CookieBannerClient";
+import { CookieBanner } from "@/components/cookies/CookieBanner";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -50,7 +50,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <CookieBannerClient />
+        <CookieBanner />
         <SpeedInsights />
         <Analytics />
       </body>
