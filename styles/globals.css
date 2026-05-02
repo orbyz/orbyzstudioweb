@@ -27,6 +27,22 @@
 
     /* TRANSITIONS */
     --transition: all 0.2s ease-in-out;
+
+    --shadow-glow: 0 0 20px rgba(206, 240, 9, 0.15);
+
+    --glow-primary: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(206, 240, 9, 0.12),
+        transparent 40%
+    );
+
+    --card-bg: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.01)
+    );
+
+    --card-border-hover: rgba(206, 240, 9, 0.25);
 }
 
 /* =========================

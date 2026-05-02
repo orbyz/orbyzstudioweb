@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Sora } from "next/font/google";
 import "@styles/globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@components/Footer";
@@ -7,11 +7,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import CookieBannerClient from "@components/CookieBannerClient";
 
-const inter = Inter({
+const sora = Sora({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-sora",
   preload: false,
 });
 
@@ -45,8 +45,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={inter.className}>
-      <body className={`${inter.className} max-h-screen antialiased`}>
+    <html lang="es" className={sora.className}>
+      <body className={`${sora.className} max-h-screen antialiased`}>
         <Navbar />
         {children}
         <Footer />

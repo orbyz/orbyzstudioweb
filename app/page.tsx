@@ -1,17 +1,18 @@
-import FeatureGrid from "@components/FeaturesGrid";
 import Hero from "@components/Hero";
-import WhyChooseUsSection from "@components/WhyChooseUsSection";
-import ProcessSection from "@components/ProcessSection";
+import { ServicesSection } from "@/sections/services/ServicesSection";
+import { WhySection } from "@/sections/why/WhySection";
+import { ProcessSection } from "@/sections/process/ProcessSection";
+import { CTASection } from "@/sections/cta/CTASection";
 import CallToActionSection from "@components/CallToActionSection";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <FeatureGrid />
+      <ServicesSection />
+      <WhySection />
       <ProcessSection />
-      <WhyChooseUsSection />
-      <CallToActionSection />
+      <CTASection />
     </>
   );
 }

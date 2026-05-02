@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import logoImg from "../assets/logo.svg";
+import logoImg from "../assets/logo.png";
 
 export default function Footer() {
   return (
@@ -12,13 +12,13 @@ export default function Footer() {
         {/* Left: Brand & Social */}
         <section className="flex flex-col gap-4">
           <Link href="/" className="flex font-bold">
-            <Image src={logoImg} alt="logo" width={48} height={48} />
-            <span className="md:w-auto self-center text-lg font-semibold whitespace-nowrap text-custom-white">
-              ORBYZ Studio
+            <Image src={logoImg} alt="logo" width={70} height={70} />
+            <span className="font-semibold text-xl items-center self-center">
+              OrByZ <span className="text-primary">Studio</span>
             </span>
           </Link>
           <p className="text-sm text-custom-white">
-            Branding, Marketing Digital y Desarrollo Web
+            Diseño web · APPs · Marketing Digital
           </p>
 
           <div className="flex gap-4 text-2xl">
