@@ -1,11 +1,11 @@
 export const NAV_LINKS = [
   {
-    name: "Nosotros",
-    path: "/about",
-  },
-  {
     name: "Servicios",
     path: "/services",
+  },
+  {
+    name: "Nosotros",
+    path: "/about",
   },
   {
     name: "Proyectos",
@@ -48,12 +48,11 @@ export const features = [
 ];
 
 export const SITE_NAME = "ORBYZ Studio";
-export const SITE_DESCRIPTION =
-  "Branding | Digital Marketing | Web Develop | Cybersecurity.";
+export const SITE_DESCRIPTION = "Branding | Digital Marketing | Web Develop.";
 export const SITE_URL = "https://www.orbyzstudio.dev";
-export const DEFAULT_OG_IMAGE = "/og-image.png";
+export const DEFAULT_OG_IMAGE = "/og-image.jpg";
 export const EMAIL = "orbyzstudio.dev@gmail.com";
-export const PHONE = "+34 624 514 890";
+export const PHONE = "+34 632 865 832";
 export const ADDRESS = "Calle MAriano Aser 3, Valencia, Espana";
 export const COPYRIGHT_NAME = "Orbyz Studio";
 export const COPYRIGHT_YEAR = new Date().getFullYear();
