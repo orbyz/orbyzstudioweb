@@ -1,10 +1,18 @@
+type ServiceBlockProps = {
+  title: string;
+  description: string;
+  features: string[];
+  outcome: string;
+  reverse?: boolean;
+};
+
 export function ServiceBlock({
   title,
   description,
   features,
   outcome,
   reverse = false,
-}: Props) {
+}: ServiceBlockProps) {
   return (
     <section className="py-24 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
