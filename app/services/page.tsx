@@ -1,8 +1,8 @@
-import { ServicesHero } from "@/sections/services-page/ServicesHero";
-import { ServicesList } from "@/sections/services-page/ServicesList";
-import { ServicesMiniProcess } from "@/sections/services-page/ServicesMiniProcess";
-import { ServicesWhy } from "@/sections/services-page/ServicesWhy";
-import { ServicesCTA } from "@/sections/services-page/ServicesCTA";
+import { ServicesHero } from "@/features/services/ServicesHero";
+import { ServicesList } from "@/features/services/ServicesList";
+import { ServicesMiniProcess } from "@/features/services/ServicesMiniProcess";
+import { ServicesWhy } from "@/features/services/ServicesWhy";
+import { ServicesCTA } from "@/features/services/ServicesCTA";
 
 export default function ServicesPage() {
   return (

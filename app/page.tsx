@@ -1,13 +1,13 @@
-import Hero from "@components/Hero";
-import { ServicesSection } from "@/sections/services/ServicesSection";
-import { WhySection } from "@/sections/why/WhySection";
-import { ProcessSection } from "@/sections/process/ProcessSection";
-import { CTASection } from "@/sections/cta/CTASection";
+import { HeroSection } from "@/features/home/HeroSection";
+import { ServicesSection } from "@/features/home/ServicesSection";
+import { WhySection } from "@/features/home/WhySection";
+import { ProcessSection } from "@/features/home/ProcessSection";
+import { CTASection } from "@/features/home/cta/CTASection";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <HeroSection />
       <ServicesSection />
       <WhySection />
       <ProcessSection />

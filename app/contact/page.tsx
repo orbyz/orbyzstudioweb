@@ -1,8 +1,8 @@
 import { metaContact } from "@app/metadata";
-import { ContactForm } from "@/sections/contact-page/ContactForm";
-import { ContactHero } from "@/sections/contact-page/ContactHero";
-import { ContactFAQ } from "@/sections/contact-page/ContactFaq";
-import { ContactTrust } from "@/sections/contact-page/ContactTrust";
+import { ContactForm } from "@/features/contact/ContactForm";
+import { ContactHero } from "@/features/contact/ContactHero";
+import { ContactFAQ } from "@/features/contact/ContactFaq";
+import { ContactTrust } from "@/features/contact/ContactTrust";
 
 export const metadata = metaContact;
 
