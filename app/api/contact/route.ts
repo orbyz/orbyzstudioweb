@@ -3,53 +3,88 @@ import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
-interface ContactRequest {
-  name: string;
-  email: string;
-  whatsapp: string;
-  message: string;
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// 🔐 Escape HTML (seguridad)
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 export async function POST(req: Request) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
-    const body = (await req.json()) as ContactRequest;
-    const { name, email, whatsapp, message } = body;
+    const body = await req.json();
 
-    if (!name || !email || !message) {
+    const { name, email, whatsapp, message, company } = body;
+
+    // 🛑 Honeypot anti-spam
+    if (company) {
+      return NextResponse.json({ success: true });
+    }
+
+    // ✅ Validaciones
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || name.length < 2) {
+      return NextResponse.json({ error: "Nombre inválido" }, { status: 400 });
+    }
+
+    if (!email || !emailRegex.test(email)) {
+      return NextResponse.json({ error: "Email inválido" }, { status: 400 });
+    }
+
+    if (!message || message.length < 10) {
       return NextResponse.json(
-        { error: "Faltan datos obligatorios" },
+        { error: "Mensaje demasiado corto" },
         { status: 400 },
       );
     }
 
-    // Envía el correo con Resend
+    // 📩 Envío email
     const { data, error } = await resend.emails.send({
-      from: "ORBYZ Studio <contact@orbyzstudio.dev>",
+      from: "OrByZ Studio <contact@orbyzstudio.dev>",
       to: ["orbyzstudio.dev@gmail.com"],
-      subject: `Nuevo mensaje de ${name}`,
-      html: `
-        <h2>Nuevo mensaje desde ORBYZ Studio</h2>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Correo:</strong> ${email}</p>
-        <p><strong>WhatsApp:</strong> ${whatsapp}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
-      `,
+      subject: `🔥 Nuevo lead: ${escapeHtml(name)}`,
       replyTo: email,
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height:1.6;">
+          <h2>Nuevo lead - OrByZ Studio</h2>
+
+          <p><strong>Nombre:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+          <p><strong>WhatsApp:</strong> ${escapeHtml(whatsapp || "-")}</p>
+
+          <hr />
+
+          <p><strong>Mensaje:</strong></p>
+          <p>${escapeHtml(message)}</p>
+        </div>
+      `,
     });
 
     if (error) {
       console.error("❌ Error Resend:", error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json(
+        { error: "Error enviando correo" },
+        { status: 500 },
+      );
     }
 
-    console.log("✅ Correo enviado:", data?.id);
+    console.log("📩 Lead recibido:", {
+      name,
+      email,
+      whatsapp,
+      id: data?.id,
+    });
+
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error("❌ Error general:", error);
     return NextResponse.json(
-      { error: "Error al enviar correo" },
+      { error: "Error interno del servidor" },
       { status: 500 },
     );
   }
