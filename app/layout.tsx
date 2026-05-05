@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
-import "@styles/globals.css";
+import "@/styles/globals.css";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -12,8 +12,6 @@ const sora = Sora({
   weight: ["400", "600"],
   display: "swap",
 });
-
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.orbyzstudio.dev"),
@@ -77,8 +75,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={sora.className}>
-      <body className={`${sora.variable} max-h-screen antialiased`}>
+    <html lang="es">
+      <body className={`${sora.className} max-h-screen antialiased`}>
         <Navbar />
         {children}
         <Footer />
