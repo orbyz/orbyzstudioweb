@@ -3,45 +3,43 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { NAV_LINKS } from "../../constants";
+import { NAV_LINKS } from "@/constants";
+import { MobileMenu } from "./MobileMenu";
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
-  const [lastScroll, setLastScroll] = useState(0);
   const [open, setOpen] = useState(false);
 
-  // SCROLL BEHAVIOR
+  // SCROLL (optimizado)
   useEffect(() => {
-    let ticking = false;
+    let lastScroll = 0;
 
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScroll = window.scrollY;
+      const current = window.scrollY;
 
-          if (currentScroll > lastScroll && currentScroll > 80) {
-            setVisible(false);
-          } else {
-            setVisible(true);
-          }
-
-          setLastScroll(currentScroll);
-          ticking = false;
-        });
-
-        ticking = true;
+      if (current > lastScroll && current > 80) {
+        setVisible(false);
+      } else {
+        setVisible(true);
       }
+
+      lastScroll = current;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScroll]);
+  }, []);
+
+  // LOCK SCROLL cuando menu abierto
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 backdrop-blur-md ${
-          visible && !open ? "translate-y-0" : "-translate-y-full"
+          visible || open ? "translate-y-0" : "-translate-y-full"
         }`}
         style={{ backgroundColor: "rgba(13,17,23,0.7)" }}
       >
@@ -61,7 +59,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* DESKTOP NAV */}
+            {/* NAV DESKTOP */}
             <nav className="hidden md:flex items-center gap-8 text-sm text-muted">
               {NAV_LINKS.map((link) => (
                 <Link
@@ -88,19 +86,19 @@ export default function Navbar() {
               aria-expanded={open}
               aria-controls="mobile-menu"
             >
-              <div className="relative h-5 w-6">
+              <div className="relative h-5 w-6 text-text">
                 <span
-                  className={`absolute left-0 h-0.5 w-full bg-white transition-all duration-300 ${
+                  className={`absolute left-0 h-0.5 w-full bg-current transition-all duration-300 ${
                     open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
                   }`}
                 />
                 <span
-                  className={`absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-white transition-opacity duration-300 ${
+                  className={`absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-current transition-opacity duration-300 ${
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 />
                 <span
-                  className={`absolute left-0 h-0.5 w-full bg-white transition-all duration-300 ${
+                  className={`absolute left-0 h-0.5 w-full bg-current transition-all duration-300 ${
                     open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
                   }`}
                 />
@@ -111,48 +109,7 @@ export default function Navbar() {
       </header>
 
       {/* MOBILE MENU */}
-      <div
-        className={`fixed inset-0 z-[60] md:hidden ${
-          open ? "visible" : "invisible"
-        }`}
-      >
-        {/* OVERLAY */}
-        <div
-          onClick={() => setOpen(false)}
-          className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${
-            open ? "opacity-100" : "opacity-0"
-          }`}
-        />
-
-        {/* PANEL */}
-        <aside
-          className={`relative w-4/5 max-w-sm h-full bg-[var(--color-bg)] p-6 transition-transform duration-300 ${
-            open ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          <ul className="mt-10 flex flex-col gap-6">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.name}
-                href={link.path}
-                onClick={() => setOpen(false)}
-                className="text-lg font-semibold text-white hover:text-primary transition"
-              >
-                {link.name}
-              </Link>
-            ))}
-
-            {/* CTA MOBILE */}
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="btn btn-primary mt-4 text-center"
-            >
-              Empecemos
-            </Link>
-          </ul>
-        </aside>
-      </div>
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </>
   );
 }
