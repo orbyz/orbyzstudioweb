@@ -6,7 +6,7 @@ export function FooterBottom() {
       <p>© {new Date().getFullYear()} OrByZ Studio</p>
 
       <div className="flex gap-4">
-        <Link href="/legal/terms-conditions">Aviso legal</Link>
+        <Link href="/legal/terms-conditions">Terminos</Link>
         <Link href="/legal/privacy-policy">Privacidad</Link>
         <Link href="/legal/cookies-policy">Cookies</Link>
       </div>

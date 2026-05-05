@@ -1,117 +1,81 @@
-// pages/privacy-policy.tsx
-import type { NextPage } from "next";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { LegalLayout } from "@/features/legal/LegalLayout";
+import { LegalSection } from "@/features/legal/LegalSection";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad – Orbyz Studio",
+  title: "Política de Privacidad – OrByZ Studio",
   description: "Cómo tratamos tus datos personales.",
 };
 
-const PrivacyPolicy: NextPage = () => {
+export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-custom-white dark:bg-custom-black text-custom-black">
-      <div className="mx-auto max-w-4xl px-6 py-16">
-        <h1 className="mb-8 text-3xl font-bold text-custom-black dark:text-custom-green">
-          Política de Privacidad
-        </h1>
-        <p className="mb-4 text-sm text-custom-black dark:text-custom-white">
-          Última actualización: 26 de octubre de 2025
+    <LegalLayout title="Política de Privacidad">
+      <LegalSection title="1. Responsable del tratamiento">
+        <ul className="list-disc pl-5 space-y-2">
+          <li>Titular: OrByZ Studio</li>
+          <li>Domicilio: Valencia, España</li>
+          <li>
+            Correo electrónico:{" "}
+            <a
+              href="mailto:privacy@orbyzstudio.dev"
+              className="text-primary underline"
+            >
+              privacy@orbyzstudio.dev
+            </a>
+          </li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="2. Finalidades y legitimación">
+        <ul className="list-disc pl-5 space-y-2">
+          <li>Prestación del servicio solicitado (ejecución contractual).</li>
+          <li>Comunicaciones comerciales (consentimiento).</li>
+          <li>Cumplimiento de obligaciones legales.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="3. Conservación">
+        <p>
+          Los datos se conservarán mientras exista relación contractual y
+          durante los plazos legales aplicables.
         </p>
+      </LegalSection>
 
-        <section className="mb-8">
-          <h2 className="mb-3 text-xl font-semibold text-custom-black dark:text-custom-green">
-            1. Responsable del tratamiento
-          </h2>
-          <ul className="list-disc space-y-1 pl-6 text-custom-black dark:text-custom-white">
-            <li>Titular: Jonathan Olbes (en adelante, “Orbyz Studio”)</li>
-            <li>Domicilio: Valencia, España</li>
-            <li>
-              Correo-e:{" "}
-              <Link
-                href="mailto:privacy@orbyzstudio.dev"
-                className="dark:text-custom-green underline"
-              >
-                privacy@orbyzstudio.dev
-              </Link>
-            </li>
-          </ul>
-        </section>
+      <LegalSection title="4. Cesiones y transferencias">
+        <p>
+          No se cederán datos a terceros salvo obligación legal o consentimiento
+          expreso. No se realizan transferencias internacionales.
+        </p>
+      </LegalSection>
 
-        <section className="mb-8">
-          <h2 className="mb-3 text-xl font-semibold text-custom-black dark:text-custom-green">
-            2. Finalidades y legitimación
-          </h2>
-          <ul className="list-disc space-y-1 pl-6 text-custom-black dark:text-custom-white">
-            <li>Prestación del servicio solicitado: ejecución del contrato.</li>
-            <li>
-              Envío de comunicaciones comerciales: consentimiento (podrás
-              retirarlo en cualquier momento).
-            </li>
-            <li>Cumplimiento de obligaciones legales: interés legítimo.</li>
-          </ul>
-        </section>
+      <LegalSection title="5. Derechos">
+        <p>
+          Puedes ejercer tus derechos de acceso, rectificación, supresión,
+          oposición y portabilidad enviando un correo a{" "}
+          <strong>privacy@orbyzstudio.dev</strong>.
+        </p>
+      </LegalSection>
 
-        <section className="mb-8">
-          <h2 className="mb-3 text-xl font-semibold text-custom-black dark:text-custom-green">
-            3. Conservación
-          </h2>
-          <p className="text-custom-black dark:text-custom-white">
-            Los datos se conservarán mientras se mantenga la relación y, tras su
-            finalización, durante los plazos de prescripción legal aplicables.
-          </p>
-        </section>
+      <LegalSection title="6. Procedencia">
+        <p>
+          Los datos personales proceden del propio interesado mediante
+          formularios de contacto u otros medios.
+        </p>
+      </LegalSection>
 
-        <section className="mb-8">
-          <h2 className="mb-3 text-xl font-semibold text-custom-black dark:text-custom-green">
-            4. Cesiones y transferencias
-          </h2>
-          <p className="text-custom-black dark:text-custom-white">
-            No se cederán datos a terceros salvo obligación legal o
-            consentimiento expreso. No hay transferencias internacionales.
-          </p>
-        </section>
+      <LegalSection title="7. Seguridad">
+        <p>
+          OrByZ Studio aplica las medidas de seguridad necesarias conforme al
+          RGPD.
+        </p>
+      </LegalSection>
 
-        <section className="mb-8">
-          <h2 className="mb-3 text-xl font-semibold text-custom-black dark:text-custom-green">
-            5. Derechos
-          </h2>
-          <p className="text-custom-black dark:text-custom-white">
-            Puedes ejercer los derechos de acceso, rectificación, supresión,
-            limitación, oposición y portabilidad enviando un correo a{" "}
-            <strong>privacy@orbyzstudio.dev</strong> junto con copia de tu DNI o
-            documento identificativo equivalente.
-          </p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="mb-3 text-xl font-semibold text-custom-black dark:text-custom-green">
-            6. Procedencia
-          </h2>
-          <p className="text-custom-black dark:text-custom-white">
-            Los datos personales que tratamos proceden del propio interesado
-            (formularios de contacto, registro, etc.).
-          </p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="mb-3 text-xl font-semibold text-custom-black dark:text-custom-green">
-            7. Seguridad
-          </h2>
-          <p className="text-custom-black dark:text-custom-white">
-            Orbyz Studio ha adoptado los niveles de seguridad correspondientes
-            exigidos por el RGPD y demás normativa aplicable.
-          </p>
-        </section>
-
-        <div className="mt-12 text-sm text-slate-500">
-          <Link href="/" className="dark:text-custom-green underline">
-            Volver al inicio
-          </Link>
-        </div>
+      <div className="pt-10">
+        <Link href="/" className="text-primary underline">
+          Volver al inicio
+        </Link>
       </div>
-    </main>
+    </LegalLayout>
   );
-};
-
-export default PrivacyPolicy;
+}
