@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 backdrop-blur-md ${
+        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-200 backdrop-blur-md ${
           open
             ? "translate-y-0"
             : visible
