@@ -7,7 +7,7 @@ import { CTASection } from "@/features/home/cta/CTASection";
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      {/* <HeroSection /> */}
       <ServicesSection />
       <WhySection />
       <ProcessSection />
