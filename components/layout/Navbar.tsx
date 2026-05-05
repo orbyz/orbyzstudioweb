@@ -34,14 +34,18 @@ export default function Navbar() {
 
   // LOCK SCROLL
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    const id = setTimeout(() => {
+      document.body.style.overflow = open ? "hidden" : "";
+    }, 0);
+
+    return () => clearTimeout(id);
   }, [open]);
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md transition-transform duration-200 ${
-          visible || open ? "translate-y-0" : "-translate-y-full"
+          visible ? "translate-y-0" : "-translate-y-full"
         }`}
         style={{ backgroundColor: "rgba(13,17,23,0.7)" }}
       >
