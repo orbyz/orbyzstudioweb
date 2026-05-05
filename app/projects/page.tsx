@@ -1,8 +1,13 @@
-export default function Projects() {
+import { ProjectsHero } from "@/features/projects/ProjectsHero";
+import { ProjectsList } from "@/features/projects/ProjectsList";
+import { ProjectsCTA } from "@/features/projects/ProjectsCTA";
+
+export default function ProjectsPage() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold">Proyectos</h1>
-      <p className="text-lg">This is the projects page.</p>
-    </div>
+    <main>
+      <ProjectsHero />
+      <ProjectsList />
+      <ProjectsCTA />
+    </main>
   );
 }
