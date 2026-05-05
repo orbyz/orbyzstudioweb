@@ -5,7 +5,7 @@ import Link from "next/link";
 const CookiePolicy: NextPage = () => {
   return (
     <main className="min-h-screen bg-custom-white dark:bg-custom-black text-custom-black">
-      <div className="mx-auto max-w-4xl px-6 py-16">
+      <div className="mx-auto max-w-6xl px-24 md:px-28 py-16">
         <h1 className="mb-8 text-3xl font-bold text-custom-black dark:text-custom-green">
           Política de Cookies
         </h1>

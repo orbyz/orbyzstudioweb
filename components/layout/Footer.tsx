@@ -1,5 +1,6 @@
 import { FooterColumn } from "@/components/ui/FooterColumn";
 import { FooterBottom } from "@/components/ui/FooterBottom";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -19,10 +20,10 @@ export function Footer() {
 
           {/* NAV */}
           <FooterColumn title="Navegación">
-            <a href="/">Inicio</a>
-            <a href="/services">Servicios</a>
-            <a href="/process">Proceso</a>
-            <a href="/contact">Contacto</a>
+            <Link href="/">Inicio</Link>
+            <Link href="/services">Servicios</Link>
+            <Link href="/projects">Proyectos</Link>
+            <Link href="/contact">Contacto</Link>
           </FooterColumn>
 
           {/* SERVICES */}
