@@ -10,17 +10,19 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [open, setOpen] = useState(false);
 
-  // SCROLL (optimizado)
+  // SCROLL (ligero)
   useEffect(() => {
     let lastScroll = 0;
 
     const handleScroll = () => {
       const current = window.scrollY;
 
-      if (current > lastScroll && current > 80) {
-        setVisible(false);
-      } else {
-        setVisible(true);
+      if (!open) {
+        if (current > lastScroll && current > 80) {
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
       }
 
       lastScroll = current;
@@ -28,9 +30,9 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [open]);
 
-  // LOCK SCROLL cuando menu abierto
+  // LOCK SCROLL
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
@@ -38,12 +40,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-200 backdrop-blur-md ${
-          open
-            ? "translate-y-0"
-            : visible
-              ? "translate-y-0"
-              : "-translate-y-full"
+        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md transition-transform duration-200 ${
+          visible || open ? "translate-y-0" : "-translate-y-full"
         }`}
         style={{ backgroundColor: "rgba(13,17,23,0.7)" }}
       >
@@ -63,7 +61,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* NAV DESKTOP */}
+            {/* DESKTOP */}
             <nav className="hidden md:flex items-center gap-8 text-sm text-muted">
               {NAV_LINKS.map((link) => (
                 <Link
@@ -86,13 +84,12 @@ export default function Navbar() {
             {/* HAMBURGER */}
             <button
               onClick={() => setOpen((o) => !o)}
-              className="grid h-10 w-10 place-items-center rounded-md md:hidden"
+              className="md:hidden grid h-10 w-10 place-items-center rounded-md"
               aria-expanded={open}
-              aria-controls="mobile-menu"
             >
               <div className="relative h-5 w-6 text-text transform-gpu">
                 <span
-                  className={`absolute left-0 h-0.5 w-full bg-current transition-transform duration-200 ${
+                  className={`absolute left-0 h-0.5 w-full bg-current transition-all duration-200 ${
                     open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
                   }`}
                 />
@@ -102,7 +99,7 @@ export default function Navbar() {
                   }`}
                 />
                 <span
-                  className={`absolute left-0 h-0.5 w-full bg-current transition-transform duration-200 ${
+                  className={`absolute left-0 h-0.5 w-full bg-current transition-all duration-200 ${
                     open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
                   }`}
                 />
@@ -112,8 +109,8 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* MOBILE MENU */}
-      <MobileMenu open={open} onClose={() => setOpen(false)} />
+      {/* 🔥 SOLO se monta cuando open */}
+      {open && <MobileMenu onClose={() => setOpen(false)} />}
     </>
   );
 }

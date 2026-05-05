@@ -4,32 +4,30 @@ import Link from "next/link";
 import { NAV_LINKS } from "@/constants";
 
 interface Props {
-  open: boolean;
   onClose: () => void;
 }
 
-export function MobileMenu({ open, onClose }: Props) {
+export function MobileMenu({ onClose }: Props) {
   return (
-    <div
-      className={`fixed inset-0 z-[60] md:hidden ${
-        open ? "visible" : "invisible"
-      }`}
-    >
+    <div className="fixed inset-0 z-[40] md:hidden">
       {/* OVERLAY */}
       <div
         onClick={onClose}
-        className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${
-          open ? "opacity-100" : "opacity-0"
-        }`}
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
       />
 
       {/* PANEL */}
       <aside
-        className={`relative w-4/5 max-w-sm h-full bg-[var(--color-bg)] p-6 transition-transform duration-300 ${
-          open ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className="
+          absolute top-0 left-0 h-full
+          w-4/5 max-w-sm
+          bg-[var(--color-bg)]
+          p-6
+          transform transition-transform duration-200
+          translate-x-0
+        "
       >
-        <ul className="mt-10 flex flex-col gap-6">
+        <ul className="mt-16 flex flex-col gap-6">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.name}
@@ -41,7 +39,6 @@ export function MobileMenu({ open, onClose }: Props) {
             </Link>
           ))}
 
-          {/* CTA */}
           <Link
             href="/contact"
             onClick={onClose}
