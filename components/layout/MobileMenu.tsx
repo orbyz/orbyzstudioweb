@@ -13,7 +13,7 @@ export function MobileMenu({ onClose }: Props) {
       {/* OVERLAY */}
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/50 transition-opacity duration-200 opacity-100"
       />
 
       {/* PANEL */}
@@ -23,8 +23,8 @@ export function MobileMenu({ onClose }: Props) {
           w-4/5 max-w-sm
           bg-[var(--color-bg)]
           p-6
-          transform transition-transform duration-200
-          translate-x-0
+          transform
+          animate-[slideIn_0.2s_ease-out]
         "
       >
         <ul className="mt-16 flex flex-col gap-6">
