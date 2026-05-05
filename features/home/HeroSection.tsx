@@ -5,19 +5,21 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden text-white">
+    <section className="relative overflow-hidden text-white isolate">
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="
             absolute top-0 right-0
-            w-[500px] h-[500px]
-            blur-3xl
+            w-[260px] h-[260px]
+            md:w-[500px] md:h-[500px]
+            blur-lg md:blur-3xl
             opacity-20
           "
           style={{
             background:
               "radial-gradient(circle, var(--color-primary), transparent 60%)",
+            willChange: "transform",
           }}
         />
       </div>
@@ -35,7 +37,6 @@ export function HeroSection() {
             digitales que escalan, convierten y generan impacto real.
           </p>
 
-          {/* CTA */}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/contact" className="btn btn-primary">
               Empecemos
@@ -53,12 +54,16 @@ export function HeroSection() {
           <div
             className="
               absolute
-              w-[320px] h-[320px]
-              blur-3xl
+              w-[180px] h-[180px]
+              md:w-[320px] md:h-[320px]
+              blur-lg md:blur-3xl
               rounded-full
               opacity-20
             "
-            style={{ backgroundColor: "var(--color-primary)" }}
+            style={{
+              backgroundColor: "var(--color-primary)",
+              willChange: "transform",
+            }}
           />
 
           {/* LOGO */}
