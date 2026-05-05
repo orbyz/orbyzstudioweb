@@ -6,10 +6,15 @@ import Image from "next/image";
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden text-white">
-      {/* BACKGROUND GLOW (más controlado) */}
+      {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] blur-3xl opacity-20"
+          className="
+            absolute top-0 right-0
+            w-[500px] h-[500px]
+            blur-3xl
+            opacity-20
+          "
           style={{
             background:
               "radial-gradient(circle, var(--color-primary), transparent 60%)",
@@ -19,7 +24,7 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-16 items-center">
         {/* LEFT */}
-        <div className="animate-fade-in">
+        <div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
             Construimos experiencias digitales{" "}
             <span className="text-primary">que generan resultados</span>
@@ -46,12 +51,18 @@ export function HeroSection() {
         <div className="relative flex justify-center items-center">
           {/* GLOW BASE */}
           <div
-            className="absolute w-[320px] h-[320px] blur-3xl rounded-full opacity-20"
+            className="
+              absolute
+              w-[320px] h-[320px]
+              blur-3xl
+              rounded-full
+              opacity-20
+            "
             style={{ backgroundColor: "var(--color-primary)" }}
           />
 
           {/* LOGO */}
-          <div className="relative transition-transform duration-500 hover:scale-105">
+          <div className="relative transition-transform duration-300 hover:scale-105">
             <Image
               src="/logo.png"
               alt="OrByZ Studio"

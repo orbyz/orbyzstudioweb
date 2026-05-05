@@ -9,35 +9,67 @@ import { CookieBanner } from "@/features/cookies/CookieBanner";
 
 const sora = Sora({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "600"],
   display: "swap",
-  variable: "--font-sora",
-  preload: false,
 });
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.orbyzstudio.dev"),
+
   title: {
-    default: "ORBYZ Studio | Agencia Digital 360°",
-    template: "%s – ORBYZ Studio", // <- clave: %s se reemplaza con el título de cada página
+    default: "OrByZ Studio | Desarrollo Web y Marketing Digital",
+    template: "%s | OrByZ Studio",
   },
+
   description:
-    "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
+    "Creamos webs y sistemas digitales que generan clientes. Desarrollo, diseño y marketing enfocados en resultados reales.",
+
+  keywords: [
+    "desarrollo web",
+    "agencia digital",
+    "marketing digital",
+    "diseño web",
+    "SEO",
+    "España",
+    "Valencia",
+  ],
+
+  authors: [{ name: "OrByZ Studio" }],
+  creator: "OrByZ Studio",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: "https://www.orbyzstudio.dev",
+  },
+
   openGraph: {
     type: "website",
     url: "https://www.orbyzstudio.dev",
-    siteName: "ORBYZ Studio",
+    siteName: "OrByZ Studio",
+    title: "OrByZ Studio | Desarrollo Web y Marketing Digital",
+    description:
+      "Creamos webs y sistemas digitales que generan clientes. Diseño, desarrollo y marketing orientados a resultados.",
     images: [
-      { url: "/og-image.jpg", width: 1200, height: 630, alt: "ORBYZ Studio" },
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "OrByZ Studio",
+      },
     ],
   },
-  // Metadatos para Twitter Cards
+
   twitter: {
     card: "summary_large_image",
-    title: "Crecimiento Digital Seguro | ORBYZ Studio",
-    description:
-      "Fusionamos creatividad y seguridad para impulsar tu marca. Descubre nuestras soluciones 360° en branding, marketing y ciberseguridad.",
-    images: "/og-image.jpg", // Ruta a tu imagen en la carpeta `public`
+    title: "OrByZ Studio | Desarrollo Web y Marketing Digital",
+    description: "Creamos webs y sistemas digitales que generan clientes.",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -46,7 +78,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={sora.className}>
-      <body className={`${sora.className} max-h-screen antialiased`}>
+      <body className={`${sora.variable} max-h-screen antialiased`}>
         <Navbar />
         {children}
         <Footer />

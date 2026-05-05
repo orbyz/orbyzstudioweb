@@ -1,9 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  env: {
-    RESEND_API_KEY: process.env.RESEND_API_KEY,
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "orbyzstudio.dev",
+          },
+        ],
+        destination: "https://www.orbyzstudio.dev/:path*",
+        permanent: true,
+      },
+    ];
   },
 };
 
