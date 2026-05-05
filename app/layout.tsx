@@ -78,6 +78,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${sora.className} max-h-screen antialiased`}>
         <Navbar />
+        <div className="h-20" />
         {children}
         <Footer />
         <CookieBanner />
