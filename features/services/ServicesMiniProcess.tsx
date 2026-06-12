@@ -18,11 +18,11 @@ export function ServicesMiniProcess() {
             "Lanzamos y optimizamos",
           ].map((step, i) => (
             <div key={i} className="group">
-              <div className="text-primary text-lg font-semibold mb-2">
+              <div className="text-primary text-2xl md:text-5xl font-semibold mb-2">
                 0{i + 1}
               </div>
 
-              <p className="text-sm text-muted">{step}</p>
+              <p className="text-sm md:text-lg text-muted">{step}</p>
             </div>
           ))}
         </div>
