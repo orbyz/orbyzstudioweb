@@ -3,8 +3,6 @@ import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // 🔐 Escape HTML (seguridad)
 function escapeHtml(str: string) {
   return str
@@ -16,6 +14,20 @@ function escapeHtml(str: string) {
 
 export async function POST(req: Request) {
   try {
+    // ✅ Verificar configuración de Resend
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
+      console.error("❌ RESEND_API_KEY no configurada");
+
+      return NextResponse.json(
+        { error: "Servicio de correo no configurado" },
+        { status: 500 },
+      );
+    }
+
+    const resend = new Resend(apiKey);
+
     const body = await req.json();
 
     const { name, email, whatsapp, message, company } = body;
@@ -28,7 +40,7 @@ export async function POST(req: Request) {
     // ✅ Validaciones
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name || name.length < 2) {
+    if (!name || name.trim().length < 2) {
       return NextResponse.json({ error: "Nombre inválido" }, { status: 400 });
     }
 
@@ -36,7 +48,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Email inválido" }, { status: 400 });
     }
 
-    if (!message || message.length < 10) {
+    if (!message || message.trim().length < 10) {
       return NextResponse.json(
         { error: "Mensaje demasiado corto" },
         { status: 400 },
@@ -67,6 +79,7 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error("❌ Error Resend:", error);
+
       return NextResponse.json(
         { error: "Error enviando correo" },
         { status: 500 },
@@ -83,6 +96,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("❌ Error general:", error);
+
     return NextResponse.json(
       { error: "Error interno del servidor" },
       { status: 500 },
