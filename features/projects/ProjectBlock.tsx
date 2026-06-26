@@ -53,7 +53,9 @@ export function ProjectBlock({
           {/* CONTENT */}
           <div className={`${reverse ? "lg:col-start-1" : ""}`}>
             {/* subtitle */}
-            <p className="text-sm text-primary mb-2">{subtitle}</p>
+            <p className="mb-4 inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+              {subtitle}
+            </p>
 
             {/* title */}
             <h2 className="text-3xl md:text-4xl font-semibold text-text mb-6">
