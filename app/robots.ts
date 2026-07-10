@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/private/"],
+        disallow: ["/private/", "/brief"],
       },
     ],
     sitemap: "https://www.orbyzstudio.dev/sitemap.xml",

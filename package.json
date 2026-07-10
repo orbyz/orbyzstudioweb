@@ -17,6 +17,7 @@
     "@iconify/tailwind4": "^1.0.6",
     "@iconify/vue": "^5.0.0",
     "@react-hook/intersection-observer": "^3.1.2",
+    "@supabase/supabase-js": "^2.58.0",
     "@use-gesture/react": "^10.3.1",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
@@ -29,6 +30,7 @@
     "react-dom": "19.1.0",
     "react-feather": "^2.0.10",
     "resend": "^6.2.2",
+    "server-only": "^0.0.1",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
@@ -39,5 +41,6 @@
     "@types/react-dom": "^18.3.7",
     "tailwindcss": "^4",
     "typescript": "5.9.3"
-  }
+  },
+  "packageManager": "pnpm@11.11.0+sha512.4463f65fd80ed80d69bc1d4bf163ee94f605c7380fc318bb5b2ebe15f8cd12d49c51a4d59e951b401e764d3b6ca751cbf51bc50ed7001a6bcb4935e684c34882"
 }
