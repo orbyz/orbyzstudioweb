@@ -3,66 +3,112 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { BRIEF_FIELDS } from "./briefQuestions";
-import { supabaseBrowser } from "@/lib/supabase/client";
 
 const STORAGE_KEY = "orbyz_brief_session";
 
 type Answers = Record<string, string>;
+type BriefStatus = "in_progress" | "completed";
 
-function getOrCreateSessionId(): string {
-  if (typeof window === "undefined") return "";
+type CachedSession = {
+  id: string;
+  answers: Answers;
+  stepIndex: number;
+};
 
-  const stored = window.localStorage.getItem(STORAGE_KEY);
+function readCachedSession(): CachedSession | null {
+  if (typeof window === "undefined") return null;
 
-  if (stored) {
-    try {
-      const parsed = JSON.parse(stored) as { id: string };
-      if (parsed.id) return parsed.id;
-    } catch {
-      // ignorar y regenerar abajo
-    }
-  }
-
-  const id = crypto.randomUUID();
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ id, answers: {} }));
-  return id;
-}
-
-function loadCachedAnswers(): Answers {
-  if (typeof window === "undefined") return {};
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (!stored) return {};
-    const parsed = JSON.parse(stored) as { answers?: Answers };
-    return parsed.answers ?? {};
+    if (!stored) return null;
+
+    const parsed = JSON.parse(stored) as Partial<CachedSession>;
+    if (!parsed.id) return null;
+
+    return {
+      id: parsed.id,
+      answers: parsed.answers ?? {},
+      stepIndex: typeof parsed.stepIndex === "number" ? parsed.stepIndex : 0,
+    };
   } catch {
-    return {};
+    return null;
   }
 }
 
-function persistLocal(id: string, answers: Answers) {
+function createSession(): CachedSession {
+  return {
+    id: crypto.randomUUID(),
+    answers: {},
+    stepIndex: 0,
+  };
+}
+
+function getOrCreateSession(): CachedSession {
+  const cached = readCachedSession();
+  if (cached) return cached;
+
+  const session = createSession();
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+  }
+  return session;
+}
+
+function persistLocal(session: CachedSession) {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ id, answers }));
+  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
+async function saveBrief(payload: {
+  id: string;
+  answers: Answers;
+  currentStep: number;
+  status: BriefStatus;
+}) {
+  const response = await fetch("/api/brief", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (response.ok) return;
+
+  const message = await response.text();
+  throw new Error(message || "No se pudo guardar el brief.");
 }
 
 export function BriefWizard() {
-  const [sessionId, setSessionId] = useState<string>("");
   const [answers, setAnswers] = useState<Answers>({});
   const [stepIndex, setStepIndex] = useState(0);
+  const [draftValue, setDraftValue] = useState("");
   const [direction, setDirection] = useState<1 | -1>(1);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
+  const sessionIdRef = useRef("");
 
   const totalSteps = BRIEF_FIELDS.length;
   const field = BRIEF_FIELDS[stepIndex];
   const isLastStep = stepIndex === totalSteps - 1;
 
   useEffect(() => {
-    const id = getOrCreateSessionId();
-    setSessionId(id);
-    setAnswers(loadCachedAnswers());
+    const session = getOrCreateSession();
+    const safeStepIndex = Math.min(
+      Math.max(session.stepIndex, 0),
+      Math.max(BRIEF_FIELDS.length - 1, 0),
+    );
+    const initialField = BRIEF_FIELDS[safeStepIndex];
+
+    sessionIdRef.current = session.id;
+    setAnswers(session.answers);
+    setStepIndex(safeStepIndex);
+    setDraftValue(initialField ? session.answers[initialField.id] ?? "" : "");
   }, []);
 
   useEffect(() => {
@@ -74,105 +120,131 @@ export function BriefWizard() {
     [stepIndex, totalSteps],
   );
 
-  const currentValue = answers[field?.id] ?? "";
+  function persistSession(nextAnswers: Answers, nextStepIndex: number) {
+    const activeSessionId = sessionIdRef.current;
+    if (!activeSessionId) return;
 
-  async function saveStep(nextAnswers: Answers, nextStep: number) {
-    if (!sessionId) return;
+    persistLocal({
+      id: activeSessionId,
+      answers: nextAnswers,
+      stepIndex: nextStepIndex,
+    });
+  }
 
-    persistLocal(sessionId, nextAnswers);
-
-    // OJO: se usa insert() + fallback a update() en vez de upsert().
-    // Postgres exige permiso de SELECT sobre la columna del conflicto para
-    // resolver un "ON CONFLICT DO UPDATE" (lo que hace upsert() por dentro),
-    // y a propósito no hay policy de SELECT para anon (ver migración SQL).
-    // insert()/update() por separado no tienen ese requisito.
-    const { error: insertError } = await supabaseBrowser
-      .from("client_briefs")
-      .insert({
-        id: sessionId,
-        current_step: nextStep,
-        answers: nextAnswers,
-        status: "in_progress",
-      });
-
-    if (insertError) {
-      // 23505 = unique_violation → la fila ya existe (no es el primer paso)
-      if (insertError.code === "23505") {
-        const { error: updateError } = await supabaseBrowser
-          .from("client_briefs")
-          .update({ current_step: nextStep, answers: nextAnswers })
-          .eq("id", sessionId);
-
-        if (updateError) {
-          console.error("Error actualizando brief:", updateError);
-        }
-      } else {
-        console.error("Error guardando brief:", insertError);
-      }
-      // No bloqueamos el avance del usuario por un error de red;
-      // sus respuestas ya quedaron en localStorage.
-    }
+  function buildAnswersSnapshot() {
+    if (!field) return answers;
+    return { ...answers, [field.id]: draftValue };
   }
 
   function handleChange(value: string) {
-    setAnswers((prev) => ({ ...prev, [field.id]: value }));
+    if (!field) return;
+
+    setDraftValue(value);
+
+    const nextAnswers = { ...answers, [field.id]: value };
+    setAnswers(nextAnswers);
+    persistSession(nextAnswers, stepIndex);
   }
 
   async function handleNext() {
-    if (field.required && !currentValue.trim()) {
+    if (!field || submitting) return;
+
+    if (field.required && !draftValue.trim()) {
       setError("Esta pregunta es necesaria para continuar.");
       return;
     }
-    setError("");
 
-    const nextAnswers = { ...answers };
-
-    if (isLastStep) {
-      setSubmitting(true);
-      await saveStep(nextAnswers, stepIndex);
-
-      const { error: dbError } = await supabaseBrowser
-        .from("client_briefs")
-        .update({ status: "completed", current_step: totalSteps })
-        .eq("id", sessionId);
-
-      if (dbError) console.error("Error marcando brief completado:", dbError);
-
-      try {
-        await fetch("/api/brief/notify", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: sessionId }),
-        });
-      } catch (err) {
-        console.error("Error notificando brief:", err);
-      }
-
-      window.localStorage.removeItem(STORAGE_KEY);
-      setSubmitting(false);
-      setSubmitted(true);
+    if (field.type === "email" && draftValue.trim() && !isValidEmail(draftValue)) {
+      setError("Ingresa un correo electrónico válido.");
       return;
     }
 
-    setDirection(1);
-    const next = stepIndex + 1;
-    setStepIndex(next);
-    void saveStep(nextAnswers, next);
+    const activeSessionId = sessionIdRef.current;
+    if (!activeSessionId) {
+      setError("No se pudo iniciar la sesión del brief. Recarga la página.");
+      return;
+    }
+
+    setError("");
+    setSubmitting(true);
+
+    const nextAnswers = buildAnswersSnapshot();
+
+    try {
+      if (isLastStep) {
+        await saveBrief({
+          id: activeSessionId,
+          answers: nextAnswers,
+          currentStep: totalSteps,
+          status: "completed",
+        });
+
+        const notifyResponse = await fetch("/api/brief/notify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: activeSessionId }),
+        });
+
+        if (!notifyResponse.ok) {
+          const message = await notifyResponse.text();
+          throw new Error(message || "No se pudo notificar el brief.");
+        }
+
+        window.localStorage.removeItem(STORAGE_KEY);
+        setAnswers(nextAnswers);
+        setSubmitted(true);
+        return;
+      }
+
+      const nextStepIndex = stepIndex + 1;
+      const nextField = BRIEF_FIELDS[nextStepIndex];
+
+      await saveBrief({
+        id: activeSessionId,
+        answers: nextAnswers,
+        currentStep: nextStepIndex,
+        status: "in_progress",
+      });
+
+      persistSession(nextAnswers, nextStepIndex);
+      setAnswers(nextAnswers);
+      setDirection(1);
+      setStepIndex(nextStepIndex);
+      setDraftValue(nextField ? nextAnswers[nextField.id] ?? "" : "");
+    } catch (saveError) {
+      console.error("Error en brief:", saveError);
+      persistSession(nextAnswers, stepIndex);
+      setError(
+        "No pudimos guardar tu respuesta en este momento. Intenta nuevamente.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   function handleBack() {
-    if (stepIndex === 0) return;
+    if (!field || stepIndex === 0 || submitting) return;
+
+    const nextAnswers = buildAnswersSnapshot();
+    const previousStepIndex = stepIndex - 1;
+    const previousField = BRIEF_FIELDS[previousStepIndex];
+
     setError("");
+    persistSession(nextAnswers, previousStepIndex);
+    setAnswers(nextAnswers);
     setDirection(-1);
-    setStepIndex((s) => s - 1);
+    setStepIndex(previousStepIndex);
+    setDraftValue(previousField ? nextAnswers[previousField.id] ?? "" : "");
   }
 
   function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === "Enter" && !e.shiftKey && field?.type !== "long") {
+    if (e.key === "Enter" && e.metaKey) {
       e.preventDefault();
       void handleNext();
+      return;
     }
-    if (e.key === "Enter" && e.metaKey) {
+
+    if (e.key === "Enter" && !e.shiftKey && field?.type !== "long") {
       e.preventDefault();
       void handleNext();
     }
@@ -203,7 +275,6 @@ export function BriefWizard() {
 
   return (
     <div className="flex min-h-[70vh] flex-col justify-center px-6 max-w-2xl mx-auto w-full">
-      {/* Barra de progreso */}
       <div className="w-full h-1 rounded-full bg-surface border border-default overflow-hidden mb-10">
         <div
           className="h-full bg-primary transition-all duration-300 ease-out"
@@ -234,7 +305,7 @@ export function BriefWizard() {
           {field.type === "long" ? (
             <textarea
               ref={inputRef as React.RefObject<HTMLTextAreaElement>}
-              value={currentValue}
+              value={draftValue}
               onChange={(e) => handleChange(e.target.value)}
               onKeyDown={handleKeyDown}
               rows={4}
@@ -245,7 +316,7 @@ export function BriefWizard() {
             <input
               ref={inputRef as React.RefObject<HTMLInputElement>}
               type={field.type === "email" ? "email" : "text"}
-              value={currentValue}
+              value={draftValue}
               onChange={(e) => handleChange(e.target.value)}
               onKeyDown={handleKeyDown}
               className="w-full p-4 border border-default rounded-lg bg-transparent text-text focus:outline-none focus:border-primary transition"
@@ -277,7 +348,9 @@ export function BriefWizard() {
               className="btn btn-primary"
             >
               {submitting
-                ? "Enviando..."
+                ? isLastStep
+                  ? "Enviando..."
+                  : "Guardando..."
                 : isLastStep
                   ? "Enviar"
                   : "Siguiente"}

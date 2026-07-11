@@ -13,6 +13,10 @@ function escapeHtml(str: string) {
     .replace(/"/g, "&quot;");
 }
 
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
 export async function POST(req: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
@@ -48,6 +52,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true, skipped: true });
     }
 
+    if (brief.status !== "completed") {
+      return NextResponse.json(
+        { error: "El brief aún no está completado" },
+        { status: 409 },
+      );
+    }
+
     const answers: Record<string, string> = brief.answers ?? {};
 
     const rowsHtml = BRIEF_FIELDS.map((field) => {
@@ -70,12 +81,14 @@ export async function POST(req: Request) {
 
     const companyName = answers.company_name || "Sin nombre";
     const contactEmail = answers.contact_email;
+    const replyTo =
+      contactEmail && isValidEmail(contactEmail) ? contactEmail.trim() : undefined;
 
     const { error: sendError } = await resend.emails.send({
       from: "OrByZ Studio <contact@orbyzstudio.dev>",
       to: ["orbyzstudio.dev@gmail.com"],
       subject: `📋 Nuevo brief completado: ${escapeHtml(companyName)}`,
-      replyTo: contactEmail || undefined,
+      replyTo,
       html: `
         <div style="font-family: Arial, sans-serif; line-height:1.6;">
           <h2>Nuevo brief de cliente</h2>
