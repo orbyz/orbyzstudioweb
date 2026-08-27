@@ -23,6 +23,12 @@ export const PROJECTS = [
     result: "Proyecto desarrollado de forma completamente voluntaria para aportar una herramienta tecnológica durante la emergencia y ayudar a reunir familias.",
     image: "/projects/safefind.png",
     website: "https://safefind-venezuela.vercel.app/",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Responsive",
+      ],
   },
   {
     title: "Miss Espanglish",
@@ -39,7 +45,7 @@ export const PROJECTS = [
       "Tailwind CSS",
       "SEO",
       "Responsive",
-      "Agendamientos",
+      "Sistema de agendamiento",
       "Multidioma ES/EN",
       "WhatsApp",
     ],
