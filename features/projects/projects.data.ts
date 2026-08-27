@@ -1,34 +1,48 @@
 export const PROJECTS = [
   {
+    title: "Saturno Telecomunicaciones",
+    subtitle: "Presencia digital para un negocio local de servicios",
+    problem: "El negocio no contaba con una presencia digital propia que reuniera sus múltiples servicios ni facilitara a nuevos clientes conocer la oferta y contactar con el establecimiento.",
+    solution: "Diseñamos y desarrollamos una web corporativa en WordPress que centraliza sus servicios, comunica su propuesta de valor y facilita el contacto directo con clientes a través de WhatsApp.",
+    result: "Una presencia digital profesional que permite presentar todos sus servicios en un único lugar, reforzar la confianza del negocio y facilitar la captación de nuevos clientes.",
+    image: "/projects/saturnotelecom.png",
+    website: "https://saturnotelecom.es/",
+    technologies: [
+        "WordPress",
+        "Diseño Web",
+        "UX/UI",
+        "Responsive",
+        "WhatsApp",
+      ],
+  },
+  {
     title: "SafeFind Venezuela",
-
-    subtitle: "❤️ Proyecto desarrollado de forma voluntaria 🇻🇪",
-
-    problem:
-      "Tras la reciente catástrofe ocurrida en Venezuela, muchas familias necesitaban una forma rápida y centralizada de compartir información sobre personas desaparecidas.",
-
-    solution:
-      "Diseñamos y desarrollamos SafeFind Venezuela, una plataforma gratuita que permite reportar, buscar y consultar personas desaparecidas desde cualquier dispositivo.",
-
-    result:
-      "Proyecto desarrollado de forma completamente voluntaria para aportar una herramienta tecnológica durante la emergencia y ayudar a reunir familias.",
-
+    subtitle: "Proyecto desarrollado de forma voluntaria ",
+    problem: "Tras la reciente catástrofe ocurrida en Venezuela, muchas familias necesitaban una forma rápida y centralizada de compartir información sobre personas desaparecidas.",
+    solution: "Diseñamos y desarrollamos SafeFind Venezuela, una plataforma gratuita que permite reportar, buscar y consultar personas desaparecidas desde cualquier dispositivo.",
+    result: "Proyecto desarrollado de forma completamente voluntaria para aportar una herramienta tecnológica durante la emergencia y ayudar a reunir familias.",
     image: "/projects/safefind.png",
-
     website: "https://safefind-venezuela.vercel.app/",
   },
   {
     title: "Miss Espanglish",
     subtitle: "Academia de idiomas",
-    problem:
-      "No tenían presencia digital clara ni un sistema para captar alumnos.",
-    solution:
-      "Diseñamos una web orientada a padres y creamos una estrategia en Instagram para atraer tráfico cualificado.",
-    result:
-      "Base digital sólida para captar nuevos alumnos y posicionar la marca.",
+    problem: "No tenían presencia digital clara ni un sistema para captar alumnos.",
+    solution: "Diseñamos una web orientada a padres y creamos una estrategia en Instagram para atraer tráfico cualificado.",
+    result: "Base digital sólida para captar nuevos alumnos y posicionar la marca.",
     image: "/projects/missespanglish.png",
     website: "https://missespanglish.com",
     instagram: "https://instagram.com/missespanglish",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "SEO",
+      "Responsive",
+      "Agendamientos",
+      "Multidioma ES/EN",
+      "WhatsApp",
+    ],
   },
 
   // Añadir más aquí

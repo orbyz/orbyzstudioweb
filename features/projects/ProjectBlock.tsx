@@ -12,6 +12,7 @@ type ProjectBlockProps = {
   image: string;
   website?: string;
   instagram?: string;
+  technologies?: string[];
   reverse?: boolean;
 };
 
@@ -24,6 +25,7 @@ export function ProjectBlock({
   image,
   website,
   instagram,
+  technologies,
   reverse = false,
 }: ProjectBlockProps) {
   return (
@@ -76,6 +78,26 @@ export function ProjectBlock({
             <p className="text-muted mb-6">
               <strong className="text-text">Resultado:</strong> {result}
             </p>
+
+            {/* technologies */}
+            {technologies && technologies.length > 0 && (
+              <div className="mb-8">
+                <p className="mb-3 text-sm font-medium text-text">
+                  Tecnologías y soluciones
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {technologies.map((technology) => (
+                    <span
+                      key={technology}
+                      className="rounded-full border border-default px-3 py-1 text-xs text-muted"
+                    >
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4">
