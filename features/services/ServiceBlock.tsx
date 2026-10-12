@@ -1,4 +1,5 @@
 type ServiceBlockProps = {
+  id?: string;
   title: string;
   description: string;
   features: string[];
@@ -7,6 +8,7 @@ type ServiceBlockProps = {
 };
 
 export function ServiceBlock({
+  id,
   title,
   description,
   features,
@@ -14,7 +16,7 @@ export function ServiceBlock({
   reverse = false,
 }: ServiceBlockProps) {
   return (
-    <section className="py-24 md:py-28">
+    <section id={id} className="py-24 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className={`grid gap-16 lg:grid-cols-2 items-center`}>
           {/* LEFT */}

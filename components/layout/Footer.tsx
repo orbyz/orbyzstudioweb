@@ -28,17 +28,15 @@ export function Footer() {
 
           {/* SERVICES */}
           <FooterColumn title="Servicios">
-            <span>Webs que convierten</span>
-            <span>Captación automatizada</span>
-            <span>Branding digital</span>
+            <Link href="/services#web-conversion">Webs que convierten</Link>
+            <Link href="/services#captacion-clientes">Captación automatizada</Link>
+            <Link href="/services#diseño-autoridad">Branding digital</Link>
           </FooterColumn>
 
           {/* CONTACT */}
           <FooterColumn title="Contacto">
             <span>España</span>
-            <a href="/contact" className="text-primary">
-              Solicitar propuesta →
-            </a>
+            <Link href="/contact" className="text-primary">Solicitar propuesta →</Link>
           </FooterColumn>
         </div>
 

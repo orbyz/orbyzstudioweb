@@ -4,6 +4,7 @@ export function ServicesList() {
   return (
     <>
       <ServiceBlock
+        id="web-conversion"
         title="Webs que convierten visitas en clientes"
         description="Diseñamos y desarrollamos plataformas optimizadas para generar leads."
         features={[
@@ -16,6 +17,7 @@ export function ServicesList() {
       />
 
       <ServiceBlock
+        id="captacion-clientes"
         title="Captación de clientes en automático"
         description="Creamos sistemas que generan oportunidades de negocio constantes."
         features={[
@@ -28,6 +30,7 @@ export function ServicesList() {
       />
 
       <ServiceBlock
+        id="diseño-autoridad"
         title="Diseño que transmite autoridad"
         description="Construimos una identidad digital sólida y profesional."
         features={[
