@@ -5,14 +5,14 @@ export function AboutTeam() {
     {
       name: "Jonathan Olbes",
       role: "CEO",
-      image: "/team/ceo.jpg",
+      image: "/team/ceo.png",
       description:
         "Enfocado en crear soluciones digitales que generen impacto real en negocio, no solo presencia online.",
     },
     {
       name: "Andreina Aguirre",
       role: "CMO",
-      image: "/team/cmo.jpg",
+      image: "/team/cmo.png",
       description:
         "Especialista en estrategia y captación de clientes, alineando marketing con resultados medibles.",
     },
