@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function AboutCTA() {
   return (
     <section className="py-32">
@@ -6,9 +8,9 @@ export function AboutCTA() {
           Si buscas una web que realmente genere resultados, podemos ayudarte
         </h2>
 
-        <a href="/contact" className="btn btn-primary">
+        <Link href="/contact" className="btn btn-primary">
           Solicitar propuesta
-        </a>
+        </Link>
       </div>
     </section>
   );

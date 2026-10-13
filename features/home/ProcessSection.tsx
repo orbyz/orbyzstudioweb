@@ -1,4 +1,5 @@
 import { ProcessGrid } from "@/components/ui/ProcessGrid";
+import Link from "next/link";
 
 export function ProcessSection() {
   return (
@@ -23,9 +24,9 @@ export function ProcessSection() {
 
         {/* CTA */}
         <div className="mt-16">
-          <a href="/contact" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary">
             Iniciar mi proyecto
-          </a>
+          </Link>
         </div>
       </div>
     </section>

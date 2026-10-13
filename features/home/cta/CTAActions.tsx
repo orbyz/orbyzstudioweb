@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export function CTAActions() {
   return (
     <div className="flex flex-col items-start gap-4 mt-8">
       {/* PRIMARY CTA */}
-      <a href="/contact" className="btn btn-primary">
+      <Link href="/contact" className="btn btn-primary">
         Solicitar propuesta
-      </a>
+      </Link>
 
       {/* MICRO TRUST */}
       <p className="text-sm text-muted">

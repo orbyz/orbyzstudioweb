@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function ServicesHero() {
   return (
     <section className="py-24 md:py-28">
@@ -18,9 +20,9 @@ export function ServicesHero() {
           </p>
 
           {/* CTA */}
-          <a href="/contact" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary">
             Solicitar propuesta
-          </a>
+          </Link>
         </div>
       </div>
     </section>

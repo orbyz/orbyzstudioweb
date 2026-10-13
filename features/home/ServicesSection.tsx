@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { services } from "@/data/services";
 import { ServicesGrid } from "@/components/ui/ServicesGrid";
 
@@ -22,9 +23,9 @@ export function ServicesSection() {
         {/* CTA */}
         <div className="mt-16 flex flex-col items-center md:items-start gap-4">
           <p className="text-muted">¿No sabes por dónde empezar?</p>
-          <a href="/contact" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary">
             Analizar mi proyecto
-          </a>
+          </Link>
         </div>
       </div>
     </section>
