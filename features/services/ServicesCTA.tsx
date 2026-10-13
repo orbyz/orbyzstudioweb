@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function ServicesCTA() {
   return (
     <section className="py-32">
@@ -19,9 +21,9 @@ export function ServicesCTA() {
               Analizaremos tu caso y te diremos exactamente cómo ayudarte.
             </p>
 
-            <a href="/contact" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-primary">
               Solicitar propuesta
-            </a>
+            </Link>
           </div>
         </div>
       </div>

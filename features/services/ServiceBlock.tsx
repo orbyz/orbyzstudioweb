@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type ServiceBlockProps = {
   id?: string;
   title: string;
@@ -49,9 +51,9 @@ export function ServiceBlock({
             >
               <p className="text-primary font-medium mb-4">{outcome}</p>
 
-              <a href="/contact" className="btn btn-primary">
+              <Link href="/contact" className="btn btn-primary">
                 Solicitar propuesta
-              </a>
+              </Link>
             </div>
           </div>
         </div>

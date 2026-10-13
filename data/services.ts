@@ -15,30 +15,30 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    id: "web",
+    id: "#web-conversion",
     title: "Webs que convierten visitas en clientes",
     description:
       "Diseñamos y desarrollamos plataformas rápidas, escalables y optimizadas para generar leads.",
     outcome: "+ leads · + velocidad · + SEO",
-    href: "/services/web",
+    href: "/services#web-conversion",
     ctaLabel: "Ver más",
   },
   {
-    id: "automation",
+    id: "#captacion-clientes",
     title: "Captación de clientes en automático",
     description:
       "Creamos sistemas que generan oportunidades de negocio de forma constante sin depender del boca a boca.",
     outcome: "flujo constante de leads",
-    href: "/services/automation",
+    href: "/services#captacion-clientes",
     ctaLabel: "Ver más",
   },
   {
-    id: "branding",
+    id: "#diseño-autoridad",
     title: "Diseño que transmite autoridad",
     description:
       "Construimos una identidad digital sólida que aumenta la confianza y mejora la conversión.",
     outcome: "más confianza · mejor percepción",
-    href: "/services/branding",
+    href: "/services#diseño-autoridad",
     ctaLabel: "Ver más",
   },
 ];
