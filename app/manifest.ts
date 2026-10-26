@@ -2,13 +2,14 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ORBYZ Studio",
-    short_name: "ORBYZ Studio",
-    description: "Agencia 360 | Branding, Marketing Digital y Desarrollo Web",
+    name: "OrByZ Studio",
+    short_name: "OrByZ",
+    description:
+      "Agencia digital especializada en branding, marketing digital y desarrollo web.",
     start_url: "/",
     display: "standalone",
     background_color: "#171717",
-    theme_color: "#fff",
+    theme_color: "#CEF009",
     icons: [
       {
         src: "/logo.png",

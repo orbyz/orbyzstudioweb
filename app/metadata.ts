@@ -2,38 +2,89 @@ import type { Metadata } from "next";
 
 const url = "https://www.orbyzstudio.dev";
 
-/* Páginas principales */
+/* Página de inicio */
 export const metaHome: Metadata = {
-  title: "Inicio",
+  title: "Desarrollo Web y Marketing Digital",
   description:
-    "Creamos productos digitales rápidos, escalables y con diseño diferencial.",
-  openGraph: { title: "Inicio – ORBYZ Studio", url: `${url}/` },
+    "Diseño web, desarrollo a medida y marketing digital para empresas que quieren mejorar su presencia online y captar clientes.",
+  alternates: {
+    canonical: `${url}/`,
+  },
+  openGraph: {
+    type: "website",
+    title: "OrByZ Studio | Desarrollo Web y Marketing Digital",
+    description:
+      "Creamos webs y soluciones digitales enfocadas en el crecimiento y la captación de clientes.",
+    url: `${url}/`,
+  },
 };
 
+/* Servicios */
 export const metaServices: Metadata = {
-  title: "Servicios",
+  title: "Servicios de Desarrollo Web y Marketing Digital",
   description:
-    "Desarrollo web, identidad de marca y marketing digital bajo el mismo techo.",
-  openGraph: { title: "Servicios – ORBYZ Studio", url: `${url}/services` },
+    "Descubre nuestros servicios de desarrollo web, branding y marketing digital para impulsar tu negocio en Internet.",
+  alternates: {
+    canonical: `${url}/services`,
+  },
+  openGraph: {
+    type: "website",
+    title: "Servicios Digitales | OrByZ Studio",
+    description:
+      "Desarrollo web, identidad de marca y marketing digital para empresas.",
+    url: `${url}/services`,
+  },
 };
 
+/* Contacto */
 export const metaContact: Metadata = {
-  title: "Contacto",
-  description: "Cuéntanos tu idea. Te respondemos en menos de 24 h.",
-  openGraph: { title: "Contacto – ORBYZ Studio", url: `${url}/contact` },
-};
-
-export const metaBlog: Metadata = {
-  title: "Blog",
+  title: "Contacto y Presupuestos",
   description:
-    "Artículos, tutoriales y casos de estudio sobre desarrollo y diseño.",
-  openGraph: { title: "Blog – ORBYZ Studio", url: `${url}/blog` },
+    "Cuéntanos qué necesita tu negocio. Solicita una propuesta de desarrollo web, branding o marketing digital sin compromiso.",
+  alternates: {
+    canonical: `${url}/contact`,
+  },
+  openGraph: {
+    type: "website",
+    title: "Contacta con OrByZ Studio",
+    description:
+      "Hablemos de tu proyecto y encontremos la solución digital que necesita tu negocio.",
+    url: `${url}/contact`,
+  },
 };
 
+/* Blog */
+export const metaBlog: Metadata = {
+  title: "Blog de Desarrollo Web, SEO y Marketing Digital",
+  description:
+    "Consejos, guías y recursos sobre desarrollo web, SEO, diseño digital y estrategias de marketing para empresas.",
+  alternates: {
+    canonical: `${url}/blog`,
+  },
+  openGraph: {
+    type: "website",
+    title: "Blog | OrByZ Studio",
+    description:
+      "Ideas y recursos prácticos sobre tecnología, diseño web y crecimiento digital.",
+    url: `${url}/blog`,
+  },
+};
+
+/* Proyectos */
 export const metaProjects: Metadata = {
-  title: "Proyectos",
-  description: "Algunos de los trabajos que hemos entregado recientemente.",
-  openGraph: { title: "Proyectos – ORBYZ Studio", url: `${url}/projects` },
+  title: "Proyectos y Casos de Desarrollo Web",
+  description:
+    "Explora proyectos de desarrollo web, plataformas digitales y soluciones creadas para empresas y clientes.",
+  alternates: {
+    canonical: `${url}/projects`,
+  },
+  openGraph: {
+    type: "website",
+    title: "Proyectos | OrByZ Studio",
+    description:
+      "Descubre proyectos reales de diseño y desarrollo digital.",
+    url: `${url}/projects`,
+  },
 };
 
 /* Sub-servicios */
@@ -43,7 +94,7 @@ export const metaWeb: Metadata = {
     "Aplicaciones full-stack con Next.js, TypeScript y diseño UI/UX.",
   openGraph: {
     title: "Desarrollo Web – ORBYZ Studio",
-    url: `${url}/services/web-development`,
+    url: `${url}/services`,
   },
 };
 
@@ -53,7 +104,7 @@ export const metaBranding: Metadata = {
     "Naming, logo, paleta, tipografía y manual de marca para startups.",
   openGraph: {
     title: "Identidad de Marca – ORBYZ Studio",
-    url: `${url}/services/branding`,
+    url: `${url}/services`,
   },
 };
 
@@ -63,6 +114,6 @@ export const metaMarketing: Metadata = {
     "SEO técnico, campañas SEM, redes sociales y funnels de conversión.",
   openGraph: {
     title: "Marketing Digital – ORBYZ Studio",
-    url: `${url}/services/digital-marketing`,
+    url: `${url}/services`,
   },
 };
