@@ -1,7 +1,9 @@
+
+import { metaProjects } from "../metadata";
+
 import { ProjectsHero } from "@/features/projects/ProjectsHero";
 import { ProjectsList } from "@/features/projects/ProjectsList";
 import { ProjectsCTA } from "@/features/projects/ProjectsCTA";
-import { metaProjects } from "../metadata";
 
 export const metadata = metaProjects;
 

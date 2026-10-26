@@ -11,11 +11,18 @@ import { AboutApproach } from "@/features/about/AboutApproach";
 import { AboutCredibility } from "@/features/about/AboutCredibility";
 import { AboutCTA } from "@/features/about/AboutCTA";
 
+
 export const metadata: Metadata = {
-  title: "Nosotros – Orbyz Studio",
+  title: {
+    absolute: "Nosotros | OrByZ Studio",
+  },
   description:
-    "Especialistas en desarrollo web, identidad de marca y marketing digital.",
+    "Conoce al equipo de OrByZ Studio y nuestra forma de trabajar en desarrollo web, identidad de marca y marketing digital.",
+  alternates: {
+    canonical: "https://www.orbyzstudio.dev/about",
+  },
 };
+
 
 export default function AboutPage() {
   return (

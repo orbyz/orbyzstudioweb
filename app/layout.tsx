@@ -42,10 +42,6 @@ export const metadata: Metadata = {
     follow: true,
   },
 
-  alternates: {
-    canonical: "https://www.orbyzstudio.dev",
-  },
-
   openGraph: {
     type: "website",
     url: "https://www.orbyzstudio.dev",

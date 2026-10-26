@@ -4,7 +4,9 @@ const url = "https://www.orbyzstudio.dev";
 
 /* Página de inicio */
 export const metaHome: Metadata = {
-  title: "Desarrollo Web y Marketing Digital",
+  title: {
+    absolute: "Desarrollo Web y Marketing Digital | OrByZ Studio",
+  },
   description:
     "Diseño web, desarrollo a medida y marketing digital para empresas que quieren mejorar su presencia online y captar clientes.",
   alternates: {
